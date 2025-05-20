@@ -1,0 +1,310 @@
+/* Variables CSS para colores principales */
+:root {
+    --primary-color: #1F3B4D; /* Azul oscuro */
+    --secondary-color: #D4AF37; /* Dorado */
+    --light-bg: #f8f9fa; /* Fondo claro */
+    --white: #fff;
+    --text-dark: #343a40; /* Texto oscuro general */
+    --overlay-opacity: 0.7; /* Opacidad para las imágenes de fondo */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--light-bg);
+    color: var(--primary-color);
+    overflow-x: hidden; /* Previene scroll horizontal indeseado */
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--primary-color);
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.navbar-brand, .nav-link, .navbar-toggler {
+    color: var(--white) !important;
+}
+.navbar-toggler-icon .fas {
+    color: var(--white);
+}
+.nav-link:hover {
+    color: var(--secondary-color) !important;
+}
+
+/* Hero Section */
+.hero {
+    /* Reemplaza esta URL con la ruta a tu imagen 'noecompu2.jpg' */
+    background: url('noecompu2.jpg') no-repeat center center/cover;
+    height: 90vh;
+    position: relative;
+    overflow: hidden;
+}
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6); /* Superposición oscura para mejor legibilidad */
+    z-index: 1;
+}
+.hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+.hero h2 {
+    font-size: clamp(2.5rem, 6vw, 3.8rem); /* Font-size responsive */
+    font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+.hero .lead {
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+}
+.hero .btn {
+    margin-top: 1.5rem;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    font-weight: 600;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px; /* Botones más redondeados */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hero .btn:hover {
+    background-color: #e6bf4a; /* Tono más claro al hover */
+    transform: translateY(-3px); /* Pequeño levantamiento */
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+
+/* Secciones Generales */
+section {
+    padding: 80px 0;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+/* Clase para animar las secciones al hacer scroll */
+section.scroll-animate.animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Sección de Inicio (Estilos específicos) */
+.inicio-bg {
+    background: url('inicio-fondo.jpg') no-repeat center center/cover;
+    background-blend-mode: multiply; /* Oscurece la imagen */
+    background-color: rgba(0, 0, 0, 0.6); /* Capa oscura */
+    color: var(--white);
+    padding: 150px 0; /* Mayor espacio vertical */
+}
+.inicio-bg h2 {
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
+.inicio-bg p {
+    font-size: 1.3rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+}
+.inicio-bg .btn-outline-light {
+    border: 2px solid var(--white);
+    color: var(--white);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.inicio-bg .btn-outline-light:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border-color: var(--secondary-color);
+}
+
+/* Sección "Sobre Nosotros" (Estilos específicos) */
+#sobre-nosotros {
+    background-color: var(--light-bg);
+}
+#sobre-nosotros h2 {
+    color: var(--primary-color);
+}
+#sobre-nosotros p {
+    color: var(--text-dark);
+    line-height: 1.7;
+}
+#sobre-nosotros .img-fluid {
+    border-radius: 50%;
+    object-fit: cover; /* Asegura que la imagen circular se vea bien */
+    height: 250px; /* Altura fija para la imagen */
+    width: 250px; /* Ancho fijo para la imagen (circular) */
+    display: block; /* Para centrar con margin auto */
+    margin: 0 auto 20px; /* Centrar la imagen en móviles */
+}
+/* Ajuste para pantallas medianas y grandes */
+@media (min-width: 768px) {
+    #sobre-nosotros .img-fluid {
+        margin: 0; /* Eliminar margen auto si está al lado del texto */
+    }
+}
+#sobre-nosotros .list-unstyled i {
+    color: var(--secondary-color);
+    margin-right: 0.5rem;
+}
+
+/* Cursos Section */
+#cursos {
+    background-color: var(--light-bg);
+}
+#cursos h2 {
+    color: var(--primary-color);
+}
+.course {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    text-align: center;
+}
+.course:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+.course i {
+    color: var(--secondary-color); /* Íconos dorados */
+    margin-bottom: 20px;
+    transition: color 0.3s ease;
+}
+.course h4 {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+.course p {
+    color: var(--text-dark);
+}
+
+/* Quiz Containers (Trivia & Test) */
+.quiz-container {
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    transition: all 0.5s ease;
+    padding: 30px !important;
+}
+.quiz-question {
+    font-size: 1.4rem;
+    margin-bottom: 25px;
+    font-weight: 500;
+    color: var(--primary-color);
+}
+.quiz-options {
+    width: 100%;
+    max-width: 550px;
+    margin-top: 20px;
+}
+.options li {
+    list-style: none;
+    cursor: pointer;
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin: 10px 0;
+    background-color: #F2F2F2;
+    transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease, transform 0.2s ease;
+    border: 1px solid transparent;
+    text-align: left; /* Opciones alineadas a la izquierda */
+    font-size: 1.1rem;
+}
+.options li:hover:not(.selected) {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border-color: var(--secondary-color);
+    transform: translateX(5px);
+}
+.options li.correct {
+    background-color: #d4edda !important; /* light green */
+    color: #155724 !important; /* dark green */
+    border-color: #28a745 !important;
+    font-weight: bold;
+}
+.options li.incorrect {
+    background-color: #f8d7da !important; /* light red */
+    color: #721c24 !important; /* dark red */
+    border-color: #dc3545 !important;
+    font-weight: bold;
+}
+.options li.selected {
+    pointer-events: none; /* Deshabilita clics después de la selección */
+}
+.quiz-feedback {
+    margin-top: 25px;
+    font-size: 1.2rem;
+    min-height: 30px; /* Para mantener el espacio */
+}
+.quiz-navigation-buttons {
+    margin-top: 35px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.quiz-start-message {
+    background-color: #e9ecef;
+    padding: 40px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 1.2rem;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+}
+
+/* Contact Section */
+#contact {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+#contact h3 {
+    font-weight: 600;
+}
+.btn.whatsapp {
+    background-color: #25D366;
+    color: white;
+    font-weight: bold;
+    padding: 12px 30px;
+    border-radius: 50px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+.btn.whatsapp:hover {
+    background-color: #1DA851;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    color: var(--white);
+    text-align: center;
+    padding: 25px 0;
+}
+.social a {
+    color: var(--white);
+    margin: 0 12px;
+    font-size: 1.5rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+.social a:hover {
+    color: var(--secondary-color);
+    transform: translateY(-3px);
+}
+
+/* Modal */
+.modal-content {
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+.modal-header {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+.modal-footer {
+    border-top: none;
+    padding-top: 0;
+}
