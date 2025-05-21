@@ -1,176 +1,222 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Miss.Noe Online English</title>
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet" />
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miss.Noe Online English - Tu Experiencia de Aprendizaje</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg fixed-top shadow-sm animate__animated animate__fadeInDown">
+    <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <a class="navbar-brand" href="#">Miss.Noe English</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand" href="#hero">Miss.Noe Online English</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
             </button>
-            <div class="collapse navbar-collapse" id="navMenu">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#sobre-nosotros">Sobre Nosotros</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#cursos">Cursos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#trivia-section">Trivia</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#level-section">Test de Nivel</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#inicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sobre-nosotros">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#cursos">Cursos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#trivia-section">Trivia</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#level-section">Test de Nivel</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contacto</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <section class="hero d-flex align-items-center text-center text-white position-relative" id="hero">
-        <div class="container hero-content animate__animated animate__zoomIn animate__delay-1s">
-            <h2 class="display-3 fw-bold mb-3">Aprendé inglés desde casa</h2>
-            <p class="lead mb-4">Clases online personalizadas para todas las edades y niveles</p>
-            <button class="btn btn-lg animate__animated animate__bounceIn" data-bs-toggle="modal" data-bs-target="#modalTest">¡Probar ahora!</button>
+    <section id="hero" class="hero d-flex align-items-center justify-content-center">
+        <div class="container hero-content text-center">
+            <h2 class="animate__animated animate__fadeInDown">Aprende Inglés de Verdad con Miss.Noe</h2>
+            <p class="lead animate__animated animate__fadeInUp animate__delay-0-5s">Clases personalizadas, resultados garantizados. Tu camino hacia la fluidez comienza aquí.</p>
+            <button type="button" class="btn animate__animated animate__zoomIn animate__delay-1s" data-bs-toggle="modal" data-bs-target="#welcomeModal">
+                ¡Empieza tu viaje!
+            </button>
         </div>
     </section>
 
-    <div class="modal fade" id="modalTest" tabindex="-1" aria-labelledby="modalTestLabel" aria-hidden="true">
+    <div class="modal fade" id="welcomeModal" tabindex="-1" aria-labelledby="welcomeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content text-dark animate__animated animate__fadeInUp">
+            <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modalTestLabel">¿Querés saber tu nivel de inglés?</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    <h5 class="modal-title" id="welcomeModalLabel">¡Bienvenido a Miss.Noe Online English!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Tenés dos opciones para conocerte mejor:</p>
+                    <p>Estamos emocionados de que nos visites. Para ayudarte a sacar el máximo provecho de tu experiencia, te invitamos a:</p>
                     <ul>
-                        <li><strong>Trivia rápida:</strong> Responde preguntas básicas de inglés para divertirte y calentar.</li>
-                        <li><strong>Test de nivel completo:</strong> Para ubicarte con precisión en el programa de nuestras clases.</li>
+                        <li><i class="fas fa-question-circle"></i> Participar en nuestra **Trivia de Inglés** para divertirte y poner a prueba tus conocimientos básicos.</li>
+                        <li><i class="fas fa-clipboard-list"></i> Realizar el **Test de Nivel** para una evaluación más precisa de tus habilidades y así poder recomendarte el curso ideal.</li>
                     </ul>
-                    <p class="mt-3">¡Elegí el que más te interese y empezá a descubrir tu inglés!</p>
+                    <p>¡Explora nuestro sitio y descubre cómo podemos transformar tu inglés!</p>
                 </div>
                 <div class="modal-footer">
-                    <a href="#trivia-section" class="btn btn-primary" data-bs-dismiss="modal">Ir a la Trivia</a>
-                    <a href="#level-section" class="btn btn-secondary" data-bs-dismiss="modal">Ir al Test de Nivel</a>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Entendido</button>
+                    <a href="#trivia-section" class="btn btn-secondary" data-bs-dismiss="modal">Ir a la Trivia</a>
                 </div>
             </div>
         </div>
     </div>
 
-    <section id="inicio" class="py-5 scroll-animate inicio-bg">
-        <div class="container text-center text-white animate__animated animate__fadeIn">
-            <h2 class="display-4 fw-bold mb-4">Bienvenidos a Miss.Noe Online English</h2>
-            <p class="lead mb-5">Tu espacio ideal para dominar el inglés de manera efectiva y divertida. Con nuestra metodología personalizada y profesores apasionados, alcanzarás tus metas lingüísticas.</p>
-            <a href="#sobre-nosotros" class="btn btn-outline-light btn-lg">Conocé más sobre nosotros</a>
+    <section id="inicio" class="inicio-bg scroll-animate">
+        <div class="container text-center">
+            <h2>Transforma tu Futuro con Inglés Online</h2>
+            <p class="lead">En Miss.Noe, creemos que aprender inglés debe ser accesible, efectivo y adaptado a tu ritmo de vida. Ofrecemos una experiencia educativa flexible, con profesores nativos y materiales de vanguardia.</p>
+            <a href="#sobre-nosotros" class="btn btn-outline-light">Conoce más sobre nosotros</a>
         </div>
     </section>
 
-    <section id="sobre-nosotros" class="py-5 scroll-animate">
+    <section id="sobre-nosotros" class="scroll-animate">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-md-6 text-center animate__animated animate__fadeInLeft">
-                    <img src="noewasap.jpg" alt="Directora Miss.Noe" class="img-fluid rounded-circle shadow-lg mb-4 mb-md-0">
+                <div class="col-lg-6 mb-4 mb-lg-0 text-center text-lg-start">
+                    <div class="img-container">
+                        <img src="noecompu2.jpg" class="img-fluid" alt="Directora Miss.Noe">
+                    </div>
                 </div>
-                <div class="col-md-6 animate__animated animate__fadeInRight">
-                    <h2 class="display-4 fw-bold mb-3 text-primary">Sobre Miss.Noe</h2>
-                    <p class="lead mb-4">¡Hola! Soy Noelia, la fundadora y directora de Miss.Noe Online English. Con años de experiencia en la enseñanza del idioma inglés y una profunda pasión por conectar con mis estudiantes, he creado este espacio virtual para que aprendas inglés de una manera accesible, personalizada y motivadora.</p>
-                    <p>Mi objetivo es brindarte las herramientas y el apoyo necesarios para que te sientas seguro y confiado al comunicarte en inglés. Ya sea que estés comenzando desde cero o buscando perfeccionar tus habilidades, estoy aquí para guiarte en cada paso de tu aprendizaje. ¡Espero conocerte pronto y ser parte de tu éxito!</p>
-                    <ul class="list-unstyled mt-3">
-                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Clases personalizadas y adaptadas a tu ritmo.</li>
-                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Metodología dinámica y participativa.</li>
-                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Seguimiento cercano y apoyo constante.</li>
+                <div class="col-lg-6">
+                    <h2>Sobre Miss.Noe Online English</h2>
+                    <p>En Miss.Noe Online English, somos más que una academia de idiomas; somos tu socio en el camino hacia la fluidez. Nuestra misión es simple: proporcionar educación de inglés de la más alta calidad, adaptable a tus necesidades y estilo de vida.</p>
+                    <p>Con un enfoque personalizado y un equipo de instructores apasionados, garantizamos una experiencia de aprendizaje inmersiva y efectiva.</p>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-check-circle"></i> Clases 100% online y flexibles.</li>
+                        <li><i class="fas fa-check-circle"></i> Profesores altamente cualificados y con experiencia.</li>
+                        <li><i class="fas fa-check-circle"></i> Metodología interactiva y enfocada en la conversación.</li>
+                        <li><i class="fas fa-check-circle"></i> Material didáctico actualizado y relevante.</li>
+                        <li><i class="fas fa-check-circle"></i> Seguimiento personalizado de tu progreso.</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="cursos" class="container-fluid bg-light py-5 scroll-animate">
+    <section id="cursos" class="scroll-animate">
         <div class="container">
-            <h2 class="mb-5 text-center display-5 fw-bold animate__animated animate__fadeIn">Nuestros Cursos</h2>
-            <div class="row g-4">
-                <div class="col-md-4 d-flex">
-                    <div class="course shadow-sm flex-fill animate__animated animate__fadeInUp animate__delay-0.5s">
-                        <i class="fas fa-book-open fa-3x text-primary mb-3"></i>
-                        <h4 class="text-primary mb-3">Inglés para Principiantes</h4>
-                        <p>Ideal para quienes dan sus primeros pasos. Aprendé desde cero con clases dinámicas y un enfoque práctico.</p>
+            <h2>Nuestros Programas de Inglés</h2>
+            <div class="row text-center g-4">
+                <div class="col-md-4">
+                    <div class="course">
+                        <i class="fas fa-child"></i>
+                        <h4>Inglés para Niños</h4>
+                        <p>Clases lúdicas y dinámicas para los más pequeños, sentando las bases del inglés de forma divertida.</p>
                     </div>
                 </div>
-                <div class="col-md-4 d-flex">
-                    <div class="course shadow-sm flex-fill animate__animated animate__fadeInUp animate__delay-0.7s">
-                        <i class="fas fa-comments fa-3x text-primary mb-3"></i>
-                        <h4 class="text-primary mb-3">Conversación Intermedia</h4>
-                        <p>Mejorá tu fluidez con situaciones reales y prácticas de conversación guiadas. ¡Hablá sin miedo!</p>
+                <div class="col-md-4">
+                    <div class="course">
+                        <i class="fas fa-user-graduate"></i>
+                        <h4>Inglés para Adolescentes</h4>
+                        <p>Programas diseñados para reforzar el aprendizaje escolar y desarrollar fluidez para el futuro.</p>
                     </div>
                 </div>
-                <div class="col-md-4 d-flex">
-                    <div class="course shadow-sm flex-fill animate__animated animate__fadeInUp animate__delay-0.9s">
-                        <i class="fas fa-graduation-cap fa-3x text-primary mb-3"></i>
-                        <h4 class="text-primary mb-3">Preparación para Exámenes</h4>
-                        <p>FCE, PET, TOEFL, IELTS. Clases enfocadas en objetivos con simulacros y tips para que alcances tu certificación.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="trivia-section" class="container py-5 scroll-animate">
-        <h3 class="text-center mb-4 display-6 animate__animated animate__fadeIn">🎯 Trivia de Inglés</h3>
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div id="trivia-quiz" class="quiz-container card p-4 shadow-sm">
-                    <div class="quiz-start-message animate__animated animate__fadeIn">
-                        <p>¡Bienvenido a la trivia! Responde estas preguntas rápidas para probar tus conocimientos básicos de inglés.</p>
-                        <button class="btn btn-success mt-3" onclick="startQuiz('trivia')">¡Empezar Trivia!</button>
+                <div class="col-md-4">
+                    <div class="course">
+                        <i class="fas fa-briefcase"></i>
+                        <h4>Inglés para Adultos y Negocios</h4>
+                        <p>Desde nivel básico hasta avanzado, con enfoque en conversación, gramática y inglés empresarial.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="level-section" class="container py-5 scroll-animate">
-        <h3 class="text-center mb-4 display-6 animate__animated animate__fadeIn">🧠 Test de Nivel</h3>
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div id="level-quiz" class="quiz-container card p-4 shadow-sm">
-                    <div class="quiz-start-message animate__animated animate__fadeIn">
-                        <p>Este test te ayudará a determinar tu nivel actual de inglés. Responde honestamente para obtener la mejor evaluación.</p>
-                        <button class="btn btn-success mt-3" onclick="startQuiz('level')">¡Empezar Test!</button>
+    <section id="trivia-section" class="scroll-animate">
+        <div class="container">
+            <h3>Pon a prueba tu inglés con nuestra Trivia</h3>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="quiz-container">
+                        <div class="quiz-start-message" id="trivia-start-message">
+                            <p>¡Prepárate para un divertido desafío! Responde preguntas de cultura general y vocabulario en inglés. ¡A ver cuánto sabes!</p>
+                            <button class="btn btn-primary" id="start-trivia-btn">Comenzar Trivia</button>
+                        </div>
+                        <div id="trivia-quiz" class="d-none w-100">
+                            <p class="quiz-question" id="trivia-question"></p>
+                            <ul class="quiz-options list-unstyled" id="trivia-options"></ul>
+                            <div class="quiz-feedback" id="trivia-feedback"></div>
+                            <div class="quiz-navigation-buttons">
+                                <button class="btn btn-secondary" id="trivia-prev-btn" disabled>Anterior</button>
+                                <button class="btn btn-primary" id="trivia-next-btn">Siguiente</button>
+                                <button class="btn btn-success" id="trivia-submit-btn" style="display: none;">Ver Resultados</button>
+                            </div>
+                            <p class="mt-3" id="trivia-score" style="display: none; font-weight: bold; font-size: 1.5rem;"></p>
+                            <button class="btn btn-info mt-3" id="trivia-restart-btn" style="display: none;">Volver a Jugar</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="text-center bg-primary text-white py-5 scroll-animate">
-        <div class="container animate__animated animate__fadeIn">
-            <h3 class="display-5 mb-4">¿Listo para empezar tu viaje con el inglés?</h3>
-            <p class="lead">¡No esperes más! Te espero para planificar tus clases y alcanzar tus metas.</p>
-            <a class="btn whatsapp btn-lg mt-3 animate__animated animate__pulse animate__infinite" href="https://wa.me/5491112345678" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-whatsapp me-2"></i> Escribime por WhatsApp
+    <section id="level-section" class="scroll-animate">
+        <div class="container">
+            <h3>¿Cuál es tu nivel de inglés? Haz nuestro Test</h3>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="quiz-container">
+                        <div class="quiz-start-message" id="level-start-message">
+                            <p>¿Curioso por saber tu nivel de inglés? Este test te ayudará a tener una idea precisa. ¡Es gratis y rápido!</p>
+                            <button class="btn btn-primary" id="start-level-btn">Comenzar Test</button>
+                        </div>
+                        <div id="level-quiz" class="d-none w-100">
+                            <p class="quiz-question" id="level-question"></p>
+                            <ul class="quiz-options list-unstyled" id="level-options"></ul>
+                            <div class="quiz-feedback" id="level-feedback"></div>
+                            <div class="quiz-navigation-buttons">
+                                <button class="btn btn-secondary" id="level-prev-btn" disabled>Anterior</button>
+                                <button class="btn btn-primary" id="level-next-btn">Siguiente</button>
+                                <button class="btn btn-success" id="level-submit-btn" style="display: none;">Finalizar Test</button>
+                            </div>
+                            <p class="mt-3" id="level-score" style="display: none; font-weight: bold; font-size: 1.5rem;"></p>
+                            <button class="btn btn-info mt-3" id="level-restart-btn" style="display: none;">Repetir Test</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="scroll-animate">
+        <div class="container text-center">
+            <h3>¿Listo para aprender inglés? ¡Contáctanos!</h3>
+            <p class="lead">Envíanos un mensaje y te asesoraremos sin compromiso sobre nuestros cursos y cómo podemos ayudarte a alcanzar tus metas.</p>
+            <a href="https://wa.me/TUNUMERODEWHATSAPP" class="btn whatsapp" target="_blank">
+                <i class="fab fa-whatsapp me-2"></i> ¡Hablemos por WhatsApp!
             </a>
+            <p class="mt-4">O si prefieres, puedes enviarnos un email a: <br><a href="mailto:tuemail@dominio.com" class="text-white text-decoration-underline">tuemail@dominio.com</a></p>
         </div>
     </section>
 
-    <footer class="py-4">
-        <p class="mb-2">&copy; 2025 Miss.Noe Online English. Todos los derechos reservados.</p>
-        <div class="social">
-            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Miss.Noe Online English. Todos los derechos reservados.</p>
+            <div class="social">
+                <a href="https://facebook.com/tupagina" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://instagram.com/tuinstagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://linkedin.com/tuperfil" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            </div>
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
