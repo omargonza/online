@@ -104,6 +104,52 @@ a:hover {
     color: var(--color-accent-teal) !important;
 }
 
+
+/* ======================== */
+/* === Navbar Brand Personalizado === */
+/* ======================== */
+.brand-elegant {
+    /* Mantén tus estilos actuales para navbar-brand, pero añádele especificidad si es necesario */
+    font-family: 'Playfair Display', serif; /* O la fuente que elijas para títulos */
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: var(--color-white) !important;
+    letter-spacing: 1.2px; /* Un poco más de espacio entre letras */
+    line-height: 1.2;
+    position: relative; /* Para el efecto de subrayado */
+    display: inline-block; /* Para que el span no se "salte" de línea */
+    padding-bottom: 5px; /* Espacio para el subrayado */
+    transition: all 0.3s ease;
+}
+
+.brand-elegant .brand-tagline {
+    display: block; /* Asegura que el tagline esté en una nueva línea */
+    font-family: 'Open Sans', sans-serif; /* Fuente más legible y delgada para el tagline */
+    font-size: 0.95rem; /* Tamaño más pequeño para el subtítulo */
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.8); /* Blanco ligeramente opaco para contraste */
+    letter-spacing: 0.5px;
+    margin-top: 3px;
+    text-shadow: none; /* Asegura que no tenga sombra si el padre la tiene */
+}
+
+/* Efecto de subrayado elegante al pasar el ratón */
+.brand-elegant::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-accent-teal); /* Tu color de acento, el verde azulado */
+    left: 0;
+    bottom: 0;
+    transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Transición suave */
+}
+
+.brand-elegant:hover::after {
+    width: 100%;
+}
+
+
 /* =========================== */
 /* === Hero Section (Principal) === */
 /* =========================== */
@@ -720,5 +766,20 @@ footer p {
     }
     .social a {
         font-size: 1.6rem;
+    }
+}
+
+/* Ajustes responsivos para evitar que el tagline sea demasiado grande en móviles */
+@media (max-width: 767px) {
+    .brand-elegant {
+        font-size: 1.5rem; /* Ajuste para pantallas más pequeñas */
+        padding-bottom: 3px;
+    }
+    .brand-elegant .brand-tagline {
+        font-size: 0.8rem;
+        margin-top: 2px;
+    }
+    .brand-elegant::after {
+        height: 1px; /* Línea más fina en móviles */
     }
 }
