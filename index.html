@@ -1,263 +1,636 @@
 <!DOCTYPE html>
-<html lang="es">
-
+<html lang="es-AR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Miss.Noe Online English - Tu Experiencia de Aprendizaje</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>Miss Noe | Online English (Argentina)</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+    content="Miss Noe Online English. Clases de inglés online en vivo en Argentina. Plan personalizado, conversación real, seguimiento y materiales. Test de nivel gratis." />
+
+  <!-- Marca: sacamos azul, usamos el CTA -->
+  <meta name="theme-color" content="#d81b7d" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Miss Noe | Online English" />
+  <meta property="og:description"
+    content="Clases online en vivo, personalizadas y con seguimiento. Test de nivel gratis." />
+  <meta property="og:type" content="website" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@600&display=swap"
+    rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-    <nav class="navbar navbar-expand-lg">
-        <div class="container">
-            <a class="navbar-brand brand-elegant" href="#hero">
-                Miss.Noe Online English
-                <span class="brand-tagline">Tu Viaje a la Fluidez Comienza Aquí.</span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#inicio">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#sobre-nosotros">Nosotros</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#cursos">Cursos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#trivia-section">Trivia</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#level-section">Test de Nivel</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contacto</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="tienda/index.html">Alma de Barro</a> <!-- Enlace a tienda -->
-                    </li>
-                </ul>
-            </div>
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-inner">
+      <a class="brand" href="#inicio" aria-label="Ir al inicio">
+        <img class="brand-logo" src="./assets/logo2.png" alt="Miss Noe Online English" />
+        <div class="brand-text">
+          <div class="brand-title">Miss Noe</div>
+          <div class="brand-subtitle">Online English · Argentina</div>
         </div>
-    </nav>
+      </a>
 
-    <section id="hero" class="hero d-flex align-items-center justify-content-center">
-        <div class="container hero-content text-center">
-            <h2 class="animate__animated animate__fadeInDown">Aprende Inglés de Verdad con Miss.Noe</h2>
-            <p class="lead animate__animated animate__fadeInUp animate__delay-0-5s">Clases personalizadas, resultados
-                garantizados. Tu camino hacia la fluidez comienza aquí.</p>
-            <button type="button" class="btn animate__animated animate__zoomIn animate__delay-1s" data-bs-toggle="modal"
-                data-bs-target="#welcomeModal">
-                ¡Empieza tu viaje!
-            </button>
-        </div>
-    </section>
+      <nav class="nav" aria-label="Navegación principal">
+        <a href="#programas">Programas</a>
+        <a href="#metodo">Método</a>
+        <a href="#planes">Planes</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contacto" class="btn btn-primary btn-sm">Inscribirme</a>
+      </nav>
 
-    <div class="modal fade" id="welcomeModal" tabindex="-1" aria-labelledby="welcomeModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="welcomeModalLabel">¡Bienvenido a Miss.Noe Online English!</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>Estamos emocionados de que nos visites. Para ayudarte a sacar el máximo provecho de tu
-                        experiencia, te invitamos a:</p>
-                    <ul>
-                        <li><i class="fas fa-question-circle"></i> Participar en nuestra **Trivia de Inglés** para
-                            divertirte y poner a prueba tus conocimientos básicos.</li>
-                        <li><i class="fas fa-clipboard-list"></i> Realizar el **Test de Nivel** para una evaluación más
-                            precisa de tus habilidades y así poder recomendarte el curso ideal.</li>
-                    </ul>
-                    <p>¡Explora nuestro sitio y descubre cómo podemos transformar tu inglés!</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Entendido</button>
-                    <a href="#trivia-section" class="btn btn-secondary" data-bs-dismiss="modal">Ir a la Trivia</a>
-                </div>
-            </div>
-        </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+      </button>
     </div>
 
-    <section id="inicio" class="inicio-bg scroll-animate">
-        <div class="container text-center">
-            <h2>Transforma tu Futuro con Inglés Online</h2>
-            <p class="lead">En Miss.Noe, creemos que aprender inglés debe ser accesible, efectivo y adaptado a tu ritmo
-                de vida. Ofrecemos una experiencia educativa flexible, con profesores nativos y materiales de
-                vanguardia.</p>
-            <a href="#sobre-nosotros" class="btn btn-outline-light">Conoce más sobre nosotros</a>
-        </div>
-    </section>
+    <div class="mobile-nav" id="mobileNav" hidden>
+      <a href="#programas">Programas</a>
+      <a href="#metodo">Método</a>
+      <a href="#planes">Planes</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contacto" class="btn btn-primary">Inscribirme</a>
+    </div>
+  </header>
 
-    <section id="sobre-nosotros" class="scroll-animate">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 mb-4 mb-lg-0 text-center text-lg-start">
-                    <div class="img-container">
-                        <img src="noecompu2.jpg" class="img-fluid" alt="Directora Miss.Noe">
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <h2>Sobre Miss.Noe Online English</h2>
-                    <p>En Miss.Noe Online English, somos más que una academia de idiomas; somos tu socio en el camino
-                        hacia la fluidez. Nuestra misión es simple: proporcionar educación de inglés de la más alta
-                        calidad, adaptable a tus necesidades y estilo de vida.</p>
-                    <p>Con un enfoque personalizado y un equipo de instructores apasionados, garantizamos una
-                        experiencia de aprendizaje inmersiva y efectiva.</p>
-                    <ul class="list-unstyled">
-                        <li><i class="fas fa-check-circle"></i> Clases 100% online y flexibles.</li>
-                        <li><i class="fas fa-check-circle"></i> Profesores altamente cualificados y con experiencia.
-                        </li>
-                        <li><i class="fas fa-check-circle"></i> Metodología interactiva y enfocada en la conversación.
-                        </li>
-                        <li><i class="fas fa-check-circle"></i> Material didáctico actualizado y relevante.</li>
-                        <li><i class="fas fa-check-circle"></i> Seguimiento personalizado de tu progreso.</li>
-                    </ul>
-                </div>
+  <main id="contenido">
+    <!-- Hero -->
+    <section class="hero hero-photo reveal" id="inicio">
+      <div class="container hero-grid">
+        <div class="hero-left">
+          <div class="pill">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>Test de nivel gratis + asesoramiento por WhatsApp</span>
+          </div>
+
+          <h1>
+            Aprendé inglés con una profe real,
+            <span class="accent">desde casa y a tu ritmo</span>
+          </h1>
+
+          <p class="lead">
+            Clases online en vivo, personalizadas y con acompañamiento real.
+            Hablás desde el primer día, con correcciones claras y objetivos medibles.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contacto">Quiero inscribirme</a>
+            <a class="btn btn-cream" href="#nivel">Hacer test de nivel</a>
+          </div>
+
+          <div class="hero-proof" aria-label="Indicadores">
+            <div class="kpi">
+              <div class="kpi-value">Online</div>
+              <div class="kpi-label">clases en vivo</div>
             </div>
-        </div>
-    </section>
-
-    <section id="cursos" class="scroll-animate">
-        <div class="container">
-            <h2>Nuestros Programas de Inglés</h2>
-            <div class="row text-center g-4">
-                <div class="col-md-4">
-                    <div class="course">
-                        <i class="fas fa-child"></i>
-                        <h4>Inglés para Niños</h4>
-                        <p>Clases lúdicas y dinámicas para los más pequeños, sentando las bases del inglés de forma
-                            divertida.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="course">
-                        <i class="fas fa-user-graduate"></i>
-                        <h4>Inglés para Adolescentes</h4>
-                        <p>Programas diseñados para reforzar el aprendizaje escolar y desarrollar fluidez para el
-                            futuro.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="course">
-                        <i class="fas fa-briefcase"></i>
-                        <h4>Inglés para Adultos y Negocios</h4>
-                        <p>Desde nivel básico hasta avanzado, con enfoque en conversación, gramática y inglés
-                            empresarial.</p>
-                    </div>
-                </div>
+            <div class="kpi">
+              <div class="kpi-value">Plan</div>
+              <div class="kpi-label">a medida</div>
             </div>
-        </div>
-    </section>
-
-    <section id="trivia-section" class="scroll-animate">
-        <div class="container">
-            <h3>Pon a prueba tu inglés con nuestra Trivia</h3>
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="quiz-container">
-                        <div class="quiz-start-message" id="trivia-start-message">
-                            <p>¡Prepárate para un divertido desafío! Responde preguntas de cultura general y vocabulario
-                                en inglés. ¡A ver cuánto sabes!</p>
-                            <button class="btn btn-primary" id="start-trivia-btn">Comenzar Trivia</button>
-                        </div>
-                        <div id="trivia-quiz" class="d-none w-100">
-                            <p class="quiz-question" id="trivia-question"></p>
-                            <ul class="quiz-options list-unstyled" id="trivia-options"></ul>
-                            <div class="quiz-feedback" id="trivia-feedback"></div>
-                            <div class="quiz-navigation-buttons">
-                                <button class="btn btn-secondary" id="trivia-prev-btn" disabled>Anterior</button>
-                                <button class="btn btn-primary" id="trivia-next-btn">Siguiente</button>
-                                <button class="btn btn-success" id="trivia-submit-btn" style="display: none;">Ver
-                                    Resultados</button>
-                            </div>
-                            <p class="mt-3" id="trivia-score"
-                                style="display: none; font-weight: bold; font-size: 1.5rem;"></p>
-                            <button class="btn btn-info mt-3" id="trivia-restart-btn" style="display: none;">Volver a
-                                Jugar</button>
-                        </div>
-                    </div>
-                </div>
+            <div class="kpi">
+              <div class="kpi-value">Seguimiento</div>
+              <div class="kpi-label">real</div>
             </div>
-        </div>
-    </section>
+          </div>
 
-    <section id="level-section" class="scroll-animate">
-        <div class="container">
-            <h3>¿Cuál es tu nivel de inglés? Haz nuestro Test</h3>
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="quiz-container">
-                        <div class="quiz-start-message" id="level-start-message">
-                            <p>¿Curioso por saber tu nivel de inglés? Este test te ayudará a tener una idea precisa. ¡Es
-                                gratis y rápido!</p>
-                            <button class="btn btn-primary" id="start-level-btn">Comenzar Test</button>
-                        </div>
-                        <div id="level-quiz" class="d-none w-100">
-                            <p class="quiz-question" id="level-question"></p>
-                            <ul class="quiz-options list-unstyled" id="level-options"></ul>
-                            <div class="quiz-feedback" id="level-feedback"></div>
-                            <div class="quiz-navigation-buttons">
-                                <button class="btn btn-secondary" id="level-prev-btn" disabled>Anterior</button>
-                                <button class="btn btn-primary" id="level-next-btn">Siguiente</button>
-                                <button class="btn btn-success" id="level-submit-btn" style="display: none;">Finalizar
-                                    Test</button>
-                            </div>
-                            <p class="mt-3" id="level-score"
-                                style="display: none; font-weight: bold; font-size: 1.5rem;"></p>
-                            <button class="btn btn-info mt-3" id="level-restart-btn" style="display: none;">Repetir
-                                Test</button>
-                        </div>
-                    </div>
-                </div>
+          <ul class="trust">
+            <li><i class="fa-solid fa-comments"></i> Conversación guiada (sin vergüenza)</li>
+            <li><i class="fa-solid fa-clipboard-check"></i> Feedback en cada clase</li>
+            <li><i class="fa-solid fa-file-lines"></i> Materiales incluidos</li>
+          </ul>
+        </div>
+
+        <aside class="hero-media" aria-label="Foto y acción rápida">
+          <div class="hero-photo-card">
+            <img src="./assets/noecompu.jpg" alt="Miss Noe dando clases online" loading="eager" />
+
+            <!-- Badge flotante -->
+            <div class="hero-badge hero-badge-abs">
+              <img class="badge-logo" src="./assets/logo2.png" alt="Miss Noe Online English" />
+              <div>
+                <div class="badge-title">Miss Noe</div>
+                <div class="badge-sub">Online English · Argentina</div>
+              </div>
             </div>
-        </div>
-    </section>
 
-    <section id="contact" class="scroll-animate">
-        <div class="container text-center">
-            <h3>¿Listo para aprender inglés? ¡Contáctanos!</h3>
-            <p class="lead">Envíanos un mensaje y te asesoraremos sin compromiso sobre nuestros cursos y cómo podemos
-                ayudarte a alcanzar tus metas.</p>
-            <a href="https://wa.me/message/COFUL7A4ENC1" class="btn whatsapp" target="_blank">
-                <i class="fab fa-whatsapp me-2"></i> ¡Hablemos por WhatsApp!
+            <!-- Overlay solo abajo -->
+            <div class="hero-photo-overlay hero-photo-overlay-bottom" aria-hidden="true">
+              <div class="hero-mini hero-mini-glass">
+                <div class="mini-row">
+                  <span class="mini-label">Objetivo</span>
+                  <span class="mini-value" id="miniGoal">A definir</span>
+                </div>
+                <div class="mini-row">
+                  <span class="mini-label">Nivel</span>
+                  <span class="mini-value" id="miniNivel">A definir</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-card hero-card-tight">
+            <h2>¿Cuál es tu objetivo?</h2>
+            <p class="muted">Elegí una opción y te armamos el plan.</p>
+
+            <div class="chips">
+              <button class="chip" type="button" data-goal="Trabajo / entrevistas">Trabajo / entrevistas</button>
+              <button class="chip" type="button" data-goal="Conversación / fluidez">Conversación / fluidez</button>
+              <button class="chip" type="button" data-goal="Viajes">Viajes</button>
+              <button class="chip" type="button" data-goal="Exámenes">Exámenes</button>
+            </div>
+
+            <a class="btn btn-whatsapp" id="ctaWhatsHero" href="#" target="_blank" rel="noopener">
+              <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
             </a>
-            <p class="mt-4">O si prefieres, puedes enviarnos un email a: <br><a href="mailto:tuemail@dominio.com"
-                    class="text-white text-decoration-underline">tuemail@dominio.com</a></p>
-        </div>
+
+            <p class="muted small">Respuesta rápida. Sin compromiso.</p>
+          </div>
+        </aside>
+      </div>
     </section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Miss.Noe Online English. Todos los derechos reservados.</p>
-            <div class="social">
-                <a href="https://facebook.com/missnoeonlineenglish" target="_blank"><i
-                        class="fab fa-facebook-f"></i></a>
-                <a href="https://instagram.com/miss.noe_online.english?igsh=amg2eWRyanlucGJw" target="_blank"><i
-                        class="fab fa-instagram"></i></a>
-                <a href="https://linkedin.com/tuperfil" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-            </div>
+    <!-- Strip (confianza) -->
+    <section class="strip reveal" aria-label="Beneficios">
+      <div class="container strip-grid">
+        <div class="strip-item">
+          <i class="fa-solid fa-user-graduate"></i>
+          <div>
+            <strong>Profe real</strong>
+            <div class="muted">clases claras y prácticas</div>
+          </div>
         </div>
-    </footer>
+        <div class="strip-item">
+          <i class="fa-solid fa-clock"></i>
+          <div>
+            <strong>Horarios</strong>
+            <div class="muted">adaptados a tu rutina</div>
+          </div>
+        </div>
+        <div class="strip-item">
+          <i class="fa-solid fa-comments"></i>
+          <div>
+            <strong>Fluidez</strong>
+            <div class="muted">conversación guiada</div>
+          </div>
+        </div>
+        <div class="strip-item">
+          <i class="fa-solid fa-clipboard-check"></i>
+          <div>
+            <strong>Seguimiento</strong>
+            <div class="muted">objetivos medibles</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <!-- Programas -->
+    <section class="section reveal" id="programas">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Programas</h2>
+          <p class="section-subtitle">
+            No todos aprenden igual. Por eso armamos un plan según tu nivel y objetivo.
+          </p>
+        </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
+        <div class="cards">
+          <article class="card">
+            <div class="card-top">
+              <h3>Inglés General</h3>
+              <span class="tag">A1–C1</span>
+            </div>
+            <p>Construimos base sólida para que avances de verdad.</p>
+            <ul class="list">
+              <li>Gramática útil (sin aburrir)</li>
+              <li>Vocabulario y práctica</li>
+              <li>Feedback constante</li>
+            </ul>
+          </article>
 
+          <article class="card">
+            <div class="card-top">
+              <h3>Conversación</h3>
+              <span class="tag">Fluidez</span>
+            </div>
+            <p>Soltás el inglés y ganás confianza hablando.</p>
+            <ul class="list">
+              <li>Temas reales</li>
+              <li>Pronunciación</li>
+              <li>Correcciones clave</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card-top">
+              <h3>Inglés para Trabajo</h3>
+              <span class="tag">Pro</span>
+            </div>
+            <p>Entrevistas, mails, reuniones y presentaciones.</p>
+            <ul class="list">
+              <li>Roleplays</li>
+              <li>CV + LinkedIn</li>
+              <li>Simulaciones</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sobre -->
+    <section class="section reveal" id="sobre">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Sobre Miss Noe</h2>
+          <p class="section-subtitle">
+            Un instituto online con trato humano: clases claras, práctica real y acompañamiento.
+          </p>
+        </div>
+
+        <div class="about">
+          <div class="about-media">
+            <img src="./assets/noecompu2.jpg" alt="Clases online con Miss Noe" loading="lazy" />
+            <div class="about-chip">
+              <i class="fa-solid fa-sparkles"></i>
+              <span>Aprendizaje real, sin humo</span>
+            </div>
+          </div>
+
+          <div class="about-copy">
+            <h3>Clases online que se sienten personalizadas</h3>
+            <p class="muted">
+              Trabajamos con objetivos concretos: conversación, trabajo, viajes o exámenes.
+              Te acompaño con correcciones claras y práctica guiada para que avances sin frustrarte.
+            </p>
+
+            <div class="about-points">
+              <div class="point">
+                <strong>Enfoque práctico</strong>
+                <div class="muted small">hablás desde el primer día</div>
+              </div>
+              <div class="point">
+                <strong>Seguimiento real</strong>
+                <div class="muted small">medimos progreso y ajustamos</div>
+              </div>
+              <div class="point">
+                <strong>Material incluido</strong>
+                <div class="muted small">clase + práctica + apoyo</div>
+              </div>
+            </div>
+
+            <a class="btn btn-primary" href="#contacto">Quiero empezar</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Método -->
+    <section class="section alt reveal" id="metodo">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Método simple, resultados reales</h2>
+          <p class="section-subtitle">Evaluamos, planificamos y medimos progreso. Sin vueltas.</p>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <div class="step-icon">1</div>
+            <h3>Diagnóstico</h3>
+            <p>Test + mini entrevista para entender tu objetivo.</p>
+          </div>
+          <div class="step">
+            <div class="step-icon">2</div>
+            <h3>Plan</h3>
+            <p>Ruta clara: qué estudiar y cómo practicar.</p>
+          </div>
+          <div class="step">
+            <div class="step-icon">3</div>
+            <h3>Seguimiento</h3>
+            <p>Medimos avances, ajustamos y reforzamos.</p>
+          </div>
+        </div>
+
+        <div class="callout">
+          <div class="callout-left">
+            <strong>¿Querés arrancar esta semana?</strong>
+            <div class="muted">Te decimos tu nivel y te proponemos el plan ideal.</div>
+          </div>
+          <a class="btn btn-primary" href="#contacto">Reservar lugar</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Planes -->
+    <section class="section reveal" id="planes">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Planes</h2>
+          <p class="section-subtitle">
+            Valores orientativos. Te asesoramos para elegir la mejor opción según tu objetivo.
+          </p>
+        </div>
+
+        <div class="pricing">
+          <article class="price-card">
+            <div class="price-head">
+              <h3>Grupal</h3>
+              <div class="price">Desde <strong>$</strong><span>XX.XXX</span>/mes</div>
+              <div class="muted">Grupos reducidos</div>
+            </div>
+            <ul class="list">
+              <li>2 clases/semana</li>
+              <li>Materiales incluidos</li>
+              <li>Seguimiento mensual</li>
+            </ul>
+            <a class="btn btn-secondary" href="#contacto">Consultar</a>
+          </article>
+
+          <article class="price-card featured">
+            <div class="badge">Más elegido</div>
+            <div class="price-head">
+              <h3>Personalizado</h3>
+              <div class="price">Desde <strong>$</strong><span>XX.XXX</span>/mes</div>
+              <div class="muted">1:1 o 2 personas</div>
+            </div>
+            <ul class="list">
+              <li>Plan a medida</li>
+              <li>Feedback en cada clase</li>
+              <li>Objetivos medibles</li>
+            </ul>
+            <a class="btn btn-primary" href="#contacto">Quiero este</a>
+          </article>
+
+          <article class="price-card">
+            <div class="price-head">
+              <h3>Trabajo</h3>
+              <div class="price">Desde <strong>$</strong><span>XX.XXX</span>/mes</div>
+              <div class="muted">Entrevistas / reuniones</div>
+            </div>
+            <ul class="list">
+              <li>Roleplays</li>
+              <li>CV + LinkedIn + emails</li>
+              <li>Simulación de entrevistas</li>
+            </ul>
+            <a class="btn btn-secondary" href="#contacto">Consultar</a>
+          </article>
+        </div>
+
+        <p class="small-note center">Reemplazá “XX.XXX” por tus precios reales en ARS.</p>
+      </div>
+    </section>
+
+    <!-- Opiniones -->
+    <section class="section alt reveal" id="resultados">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Opiniones</h2>
+          <p class="section-subtitle">Prueba social simple, clara y creíble.</p>
+        </div>
+
+        <div class="testimonials">
+          <article class="t-card">
+            <div class="stars" aria-label="5 estrellas">★★★★★</div>
+            <p>“En 2 meses mejoré para reuniones. Muy práctico.”</p>
+            <div class="t-meta"><strong>Lucía</strong> · CABA</div>
+          </article>
+
+          <article class="t-card">
+            <div class="stars" aria-label="5 estrellas">★★★★★</div>
+            <p>“Mucha conversación y corrección justa.”</p>
+            <div class="t-meta"><strong>Martín</strong> · Rosario</div>
+          </article>
+
+          <article class="t-card">
+            <div class="stars" aria-label="5 estrellas">★★★★★</div>
+            <p>“Me preparó para entrevista y quedé. Gracias.”</p>
+            <div class="t-meta"><strong>Agus</strong> · Córdoba</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Test de nivel -->
+    <section class="section reveal" id="nivel">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Test de nivel (rápido)</h2>
+          <p class="section-subtitle">3 preguntas. Resultado orientativo y te asesoramos.</p>
+        </div>
+
+        <div class="quiz">
+          <div class="q">
+            <h3>1) Elegí la opción correcta</h3>
+            <div class="options">
+              <label><input type="radio" name="q1" value="a"> I <strong>go</strong> to work every day.</label>
+              <label><input type="radio" name="q1" value="b"> I <strong>goes</strong> to work every day.</label>
+              <label><input type="radio" name="q1" value="c"> I <strong>going</strong> to work every day.</label>
+            </div>
+          </div>
+
+          <div class="q">
+            <h3>2) Completá la frase</h3>
+            <div class="options">
+              <label><input type="radio" name="q2" value="a"> She <strong>has been</strong> studying for two hours.</label>
+              <label><input type="radio" name="q2" value="b"> She <strong>is</strong> study for two hours.</label>
+              <label><input type="radio" name="q2" value="c"> She <strong>have</strong> studying for two hours.</label>
+            </div>
+          </div>
+
+          <div class="q">
+            <h3>3) Interpretación</h3>
+            <div class="options">
+              <label><input type="radio" name="q3" value="a"> “Could you…” es una forma educada de pedir algo.</label>
+              <label><input type="radio" name="q3" value="b"> “Could you…” es siempre pasado.</label>
+              <label><input type="radio" name="q3" value="c"> “Could you…” se usa solo en emails.</label>
+            </div>
+          </div>
+
+          <div class="quiz-actions">
+            <button class="btn btn-primary" id="btnCalcular" type="button">Ver mi nivel</button>
+            <button class="btn btn-secondary" id="btnReset" type="button">Reiniciar</button>
+          </div>
+
+          <div class="result" id="resultado" role="status" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WhatsApp section -->
+    <section class="section alt reveal" id="whatsapp">
+      <div class="container">
+        <div class="whats-card">
+          <div class="whats-media">
+            <img src="./assets/noewasap.jpg" alt="Asesoramiento por WhatsApp" loading="lazy" />
+          </div>
+          <div class="whats-copy">
+            <h2 class="section-title">Te asesoramos por WhatsApp</h2>
+            <p class="section-subtitle" style="text-align:left;margin:0">
+              Contanos tu objetivo y disponibilidad. Te digo tu nivel y te recomiendo el plan ideal.
+            </p>
+            <div style="height:10px"></div>
+
+            <!-- ID único -->
+            <a class="btn btn-whatsapp" id="ctaWhatsSection" href="#" target="_blank" rel="noopener">
+              <i class="fab fa-whatsapp"></i> Abrir WhatsApp
+            </a>
+
+            <p class="muted small" style="margin-top:10px">Respuesta rápida. Sin compromiso.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section alt reveal" id="faq">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Preguntas frecuentes</h2>
+          <p class="section-subtitle">Respondemos lo que más se consulta antes de empezar.</p>
+        </div>
+
+        <div class="accordion">
+          <button class="acc-item" aria-expanded="false" type="button">
+            <span>¿Las clases son en vivo?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="acc-panel" hidden>
+            <p>Sí. Son <strong>online en vivo</strong>. Eso acelera conversación y feedback.</p>
+          </div>
+
+          <button class="acc-item" aria-expanded="false" type="button">
+            <span>¿Qué necesito para empezar?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="acc-panel" hidden>
+            <p>Celular o compu con internet + auriculares. Nosotros enviamos materiales.</p>
+          </div>
+
+          <button class="acc-item" aria-expanded="false" type="button">
+            <span>¿Cuánto tiempo hasta ver resultados?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="acc-panel" hidden>
+            <p>Depende del nivel y constancia. Con 2 clases/semana, suele haber mejora en 4–6 semanas.</p>
+          </div>
+
+          <button class="acc-item" aria-expanded="false" type="button">
+            <span>¿Puedo pagar mes a mes?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="acc-panel" hidden>
+            <p>Sí. Te pasamos opciones (mensual / trimestral) según modalidad.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="section contact reveal" id="contacto">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Contacto</h2>
+          <p class="section-subtitle">Te asesoramos por WhatsApp o por formulario.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h3>WhatsApp directo</h3>
+            <p>Contanos tu objetivo y disponibilidad. Te respondemos a la brevedad.</p>
+
+            <!-- ID único -->
+            <a class="btn btn-whatsapp" id="ctaWhatsContact" href="#" target="_blank" rel="noopener">
+              <i class="fab fa-whatsapp"></i> Abrir WhatsApp
+            </a>
+
+            <div class="muted small">Lun a Sáb · 9 a 20</div>
+          </div>
+
+          <div class="contact-card">
+            <h3>Formulario</h3>
+            <p class="muted">Dejanos tus datos y te escribimos.</p>
+
+            <form class="form" id="leadForm" action="https://formspree.io/f/mwvkvrnk" method="POST">
+              <input type="hidden" name="_subject" value="Nuevo lead — Miss Noe Online English" />
+              <input type="hidden" name="_language" value="es" />
+              <input type="hidden" name="source" value="GitHub Pages Landing" />
+              <input type="hidden" name="_next" value="https://gonza.github.io/online/gracias.html" />
+
+              <!-- Honeypot manual -->
+              <input type="text" name="company" tabindex="-1" autocomplete="off" class="hp" />
+
+              <label>
+                Nombre
+                <input name="nombre" type="text" placeholder="Tu nombre" required />
+              </label>
+
+              <label>
+                WhatsApp
+                <input name="telefono" type="tel" placeholder="Ej: 11 6447 3007" required />
+              </label>
+
+              <label>
+                Objetivo
+                <select name="objetivo" required>
+                  <option value="" disabled selected>Seleccionar…</option>
+                  <option>Trabajo / entrevistas</option>
+                  <option>Conversación / fluidez</option>
+                  <option>Viajes</option>
+                  <option>Exámenes</option>
+                  <option>General</option>
+                </select>
+              </label>
+
+              <button class="btn btn-primary" type="submit">Enviar consulta</button>
+              <div class="muted small" id="formMsg"></div>
+            </form>
+
+            <p class="small-note center">
+              Te respondemos a la brevedad para ayudarte a elegir el plan ideal según tu nivel y objetivo.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <img class="footer-logo" src="./assets/logo2.png" alt="Miss Noe Online English" />
+        <div class="footer-brand">Miss Noe</div>
+        <div class="muted small">Online English · Argentina</div>
+      </div>
+
+      <div class="footer-links">
+        <a href="#programas">Programas</a>
+        <a href="#planes">Planes</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+
+      <div class="muted small">
+        © <span id="year"></span> · Todos los derechos reservados
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp -->
+  <a class="whats-float" id="whatsFloat" href="#" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <script src="main.js"></script>
 </body>
-
 </html>
