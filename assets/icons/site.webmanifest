@@ -1,0 +1,22 @@
+{
+  "name": "Miss Noe Online English",
+  "short_name": "Miss Noe",
+  "description": "Clases de inglés online en vivo y personalizadas",
+  "start_url": "/online/",
+  "scope": "/online/",
+  "display": "standalone",
+  "background_color": "#fff8fb",
+  "theme_color": "#d81b7d",
+  "icons": [
+    {
+      "src": "/online/assets/icons/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/online/assets/icons/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
