@@ -1,58 +1,39 @@
-/* =========================================================
-   Miss Noe Online English — main.js (v2)
-   Enfoque: CURSO ASÍNCRONO tipo Udemy + Mercado Pago + Classroom
-   - WhatsApp: mensajes orientados a “curso grabado + soporte”
-   - Botones: Comprar / Acceder / Consultar (sin romper si no existen)
-   - Tracking liviano (GA4 opcional)
-   - Test de nivel 25 (tu versión compatible con <details>)
-========================================================= */
+// ==============================
+// Miss Noe Online English — main.js
+// MP + Classroom + WhatsApp + Test + UX
+// ==============================
 
-// ===== Configuración general =====
-const BRAND_NAME = "Miss Noe Online English";
+// ===== Configuración =====
 const WHATSAPP_PHONE = "541126483009";
+const BRAND_NAME = "Miss Noe Online English";
 
-// Base site (para armar links/canonical/UTM internos si querés)
-const SITE_BASE_URL = "https://omargonza.github.io/online/";
+// Mercado Pago / Classroom (PEGÁ TUS LINKS REALES)
+const MP_CHECKOUT_URL = "https://mpago.la/xxxx"; // TODO: reemplazar
+const CLASSROOM_URL = "https://classroom.google.com/...."; // TODO: reemplazar
 
-// ===== Producto / Venta (ajustar con la clienta) =====
-// Opción simple (recomendada para landing estática):
-// 1) La clienta genera un LINK DE PAGO de Mercado Pago y lo pega acá.
-// 2) Cuando paga, lo mandás a gracias.html con instrucciones + link de Classroom.
-const MP_CHECKOUT_URL = ""; // <-- PEGAR ACÁ (ej: https://mpago.la/xxxxxx) o dejar vacío
-const MP_ITEM_NAME = "Curso de Inglés Asincrónico (Acceso + Soporte)";
-
-// Classroom: link de acceso o de invitación (depende de cómo lo manejen)
-const CLASSROOM_URL = ""; // <-- PEGAR ACÁ (ej: https://classroom.google.com/u/0/c/XXXX)
-
-// Soporte / WhatsApp
+// IDs del HTML (WhatsApp)
 const WHATS_IDS = ["ctaWhatsHero", "ctaWhatsSection", "ctaWhatsContact", "whatsFloat"];
 
-// IDs opcionales para compra/acceso (si no existen en HTML, no rompe)
-const BUY_IDS = ["ctaBuyHero", "ctaBuyPlans", "ctaBuySticky"];     // Botones “Comprar”
-const ACCESS_IDS = ["ctaAccessHero", "ctaAccessSection"];         // Botones “Acceder al curso”
-const PRICE_TEXT_IDS = ["priceMpLabel"];                          // Texto de precio (si lo agregás)
-const PAY_BADGE_IDS = ["payBadge"];                               // Badge “Mercado Pago” (si lo agregás)
+// IDs del HTML (Compra / Acceso)
+// (si no existen en tu HTML, se ignoran)
+const BUY_IDS = ["ctaBuyHero", "ctaBuyPlans", "ctaBuyFooter"];
+const ACCESS_IDS = ["ctaAccessHero", "ctaAccessSection", "ctaAccessPlans"];
 
-// ===== Storage keys (persistencia) =====
+// Storage keys (persistencia)
 const LS_GOAL = "missnoe_goal";
 const LS_LEVEL = "missnoe_level";
+
+// Test 25 (persistencia completa)
 const LS_TEST = "missnoe_leveltest_v1";
 
 // Estado global simple
-const state = { goal: "", level: "" };
+const state = {
+  goal: "",
+  level: ""
+};
 
 function safeText(s) {
   return String(s || "").trim();
-}
-
-function qs(params = {}) {
-  const u = new URLSearchParams();
-  Object.entries(params).forEach(([k, v]) => {
-    const val = safeText(v);
-    if (val) u.set(k, val);
-  });
-  const out = u.toString();
-  return out ? `?${out}` : "";
 }
 
 // ------- Tracking liviano (GA4 opcional) -------
@@ -66,67 +47,51 @@ function track(eventName, params = {}) {
   console.debug("[track]", eventName, params);
 }
 
-// =====================================================
-// WhatsApp: mensaje segmentado por objetivo + nivel
-// (adaptado a CURSO ASINCRÓNICO + soporte)
-// =====================================================
-function buildWhatsAppLink({ goal, level, intent = "info" }) {
+// ===== Helpers URL =====
+function isPlaceholderUrl(url) {
+  const u = safeText(url);
+  if (!u) return true;
+  return u.includes("mpago.la/xxxx") || u.includes("classroom.google.com/....");
+}
+
+// ===== WhatsApp: mensaje segmentado por objetivo + nivel =====
+function buildWhatsAppLink({ goal, level }) {
   const base = `https://wa.me/${WHATSAPP_PHONE}`;
   const g = safeText(goal);
   const l = safeText(level);
 
-  // Intents: info | buy | access
-  const intentLine =
-    intent === "buy"
-      ? "Quiero comprar el curso asincrónico."
-      : intent === "access"
-      ? "Ya pagué / quiero acceso al Classroom."
-      : "Quiero info del curso asincrónico.";
-
   const templates = {
     "Trabajo / entrevistas": {
-      opener: `Hola ${BRAND_NAME}. ${intentLine} Mi objetivo es mejorar mi inglés para trabajo y entrevistas.`,
-      bullets: [
-        "Me interesa practicar entrevistas, reuniones y emails.",
-        "Prefiero modalidad grabada + ejercicios y soporte."
-      ],
-      ask: "¿Me pasás el link de Mercado Pago y cómo es el acceso por Classroom?"
+      opener: `Hola ${BRAND_NAME}. Quiero mejorar mi inglés para trabajo y entrevistas.`,
+      bullets: ["Me interesa practicar entrevistas, reuniones y emails."],
+      ask: "¿Me pasás planes y cómo funciona el curso asincrónico + acompañamiento?"
     },
     "Conversación / fluidez": {
-      opener: `Hola ${BRAND_NAME}. ${intentLine} Quiero enfocarme en conversación y fluidez.`,
-      bullets: [
-        "Busco hablar más y ganar confianza.",
-        "Me sirve curso grabado + práctica guiada."
-      ],
-      ask: "¿Cómo es el curso (módulos, prácticas) y cómo me dan soporte?"
+      opener: `Hola ${BRAND_NAME}. Quiero enfocarme en conversación y fluidez.`,
+      bullets: ["Busco hablar más y ganar confianza."],
+      ask: "¿Cómo funciona el curso asincrónico y qué soporte/correcciones incluye?"
     },
     "Viajes": {
-      opener: `Hola ${BRAND_NAME}. ${intentLine} Quiero inglés práctico para viajes.`,
-      bullets: [
-        "Necesito frases reales, escucha y speaking para situaciones comunes.",
-        "Me sirve hacerlo a mi ritmo."
-      ],
-      ask: "¿Qué incluye el curso y cómo compro por Mercado Pago?"
+      opener: `Hola ${BRAND_NAME}. Quiero inglés práctico para viajes.`,
+      bullets: ["Necesito frases reales, escucha y speaking para situaciones comunes."],
+      ask: "¿Me recomendás un plan y cómo accedo al contenido del curso?"
     },
     "Exámenes": {
-      opener: `Hola ${BRAND_NAME}. ${intentLine} Quiero prepararme para un examen de inglés.`,
-      bullets: [
-        "Necesito plan y práctica con enfoque en el examen.",
-        "Modalidad asincrónica me viene bien."
-      ],
-      ask: "¿Qué incluye el curso y cómo sería el seguimiento?"
+      opener: `Hola ${BRAND_NAME}. Quiero prepararme para un examen de inglés.`,
+      bullets: ["Necesito plan y práctica con enfoque en el examen."],
+      ask: "¿Cómo sería el plan de preparación en modalidad asincrónica + acompañamiento?"
     },
     "General": {
-      opener: `Hola ${BRAND_NAME}. ${intentLine} Quiero mejorar mi inglés en general.`,
-      bullets: ["Busco un plan ordenado, práctica y seguimiento."],
-      ask: "¿Me pasás el link de pago y cómo accedo al Classroom?"
+      opener: `Hola ${BRAND_NAME}. Quiero mejorar mi inglés en general.`,
+      bullets: ["Busco un plan ordenado y seguimiento."],
+      ask: "¿Me pasás opciones del curso y cómo es el acompañamiento?"
     }
   };
 
   const fallback = {
-    opener: `Hola ${BRAND_NAME}. ${intentLine}`,
+    opener: `Hola ${BRAND_NAME}, quiero info del curso de inglés online (asincrónico).`,
     bullets: [],
-    ask: "¿Me pasás precios, link de Mercado Pago y cómo es el acceso por Classroom?"
+    ask: "¿Me pasás precio, cómo accedo al contenido y qué incluye?"
   };
 
   const tpl = templates[g] || fallback;
@@ -134,7 +99,7 @@ function buildWhatsAppLink({ goal, level, intent = "info" }) {
   const parts = [
     tpl.opener,
     g ? `Objetivo: ${g}.` : null,
-    l ? `Nivel estimado (test): ${l}.` : null,
+    l ? `Nivel estimado: ${l}.` : null,
     ...tpl.bullets,
     tpl.ask
   ].filter(Boolean);
@@ -143,8 +108,8 @@ function buildWhatsAppLink({ goal, level, intent = "info" }) {
   return `${base}?text=${encodeURIComponent(msg)}`;
 }
 
-function setWhatsLinks(intent = "info") {
-  const link = buildWhatsAppLink({ goal: state.goal, level: state.level, intent });
+function setWhatsLinks() {
+  const link = buildWhatsAppLink({ goal: state.goal, level: state.level });
   WHATS_IDS.forEach((id) => {
     const el = document.getElementById(id);
     if (el) el.href = link;
@@ -165,90 +130,94 @@ function restoreState() {
   } catch (_) {}
 }
 
-// =====================================================
-// Mercado Pago + Classroom wiring (no rompe si no hay IDs)
-// =====================================================
-function buildMpCheckoutLink() {
-  // Si la clienta te pasa un link MP directo, se usa.
-  // Opcional: agregamos querystring para tracking interno.
-  const base = safeText(MP_CHECKOUT_URL);
-  if (!base) return ""; // modo “solo WhatsApp”
-
-  // No todos los links aceptan query params sin romper; igual los agregamos de forma conservadora:
-  // Si el link ya tiene "?", concatenamos con "&".
-  const params = new URLSearchParams({
-    src: "landing",
-    goal: state.goal || "",
-    level: state.level || ""
-  });
-
-  const sep = base.includes("?") ? "&" : "?";
-  return `${base}${sep}${params.toString()}`;
-}
-
-function setBuyLinks() {
-  const mp = buildMpCheckoutLink();
-
+function initCheckoutLinks() {
+  // Comprar (MP)
   BUY_IDS.forEach((id) => {
     const el = document.getElementById(id);
     if (!el) return;
 
-    if (mp) {
-      el.removeAttribute("disabled");
-      el.setAttribute("href", mp);
-      el.setAttribute("target", "_blank");
-      el.setAttribute("rel", "noopener");
+    el.setAttribute("href", MP_CHECKOUT_URL || "#");
+    el.setAttribute("target", "_blank");
+    el.setAttribute("rel", "noopener");
+
+    el.addEventListener("click", () => {
+      track("buy_click", {
+        id,
+        goal: state.goal || "none",
+        level: state.level || "none"
+      });
+    });
+  });
+
+  // Acceder (Classroom)
+  ACCESS_IDS.forEach((id) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+
+    el.setAttribute("href", CLASSROOM_URL || "#");
+    el.setAttribute("target", "_blank");
+    el.setAttribute("rel", "noopener");
+
+    el.addEventListener("click", () => {
+      track("classroom_click", { id });
+    });
+  });
+}
+
+
+// ===== Mercado Pago / Classroom links =====
+function setBuyLinks() {
+  const url = safeText(MP_CHECKOUT_URL);
+  BUY_IDS.forEach((id) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+
+    // si quedó placeholder, no rompas navegación: manda a contacto
+    if (isPlaceholderUrl(url)) {
+      el.href = "#contacto";
+      el.removeAttribute("target");
+      el.removeAttribute("rel");
       el.addEventListener(
         "click",
-        () => track("buy_click", { id, goal: state.goal || "none", level: state.level || "none", mp: "link" }),
+        () => track("buy_click_placeholder", { id, goal: state.goal || "none", level: state.level || "none" }),
         { once: true }
       );
-    } else {
-      // fallback: si no hay link MP, que abra WhatsApp con intención de compra
-      el.setAttribute("href", buildWhatsAppLink({ goal: state.goal, level: state.level, intent: "buy" }));
-      el.setAttribute("target", "_blank");
-      el.setAttribute("rel", "noopener");
-      el.addEventListener(
-        "click",
-        () => track("buy_click", { id, goal: state.goal || "none", level: state.level || "none", mp: "whatsapp" }),
-        { once: true }
-      );
+      return;
     }
-  });
 
-  // Opcional: textos o badges si los agregás
-  PRICE_TEXT_IDS.forEach((id) => {
-    const el = document.getElementById(id);
-    if (!el) return;
-    el.textContent = mp ? "Pagá con Mercado Pago (link directo)" : "Pagá con Mercado Pago (te pasamos el link por WhatsApp)";
-  });
-
-  PAY_BADGE_IDS.forEach((id) => {
-    const el = document.getElementById(id);
-    if (!el) return;
-    el.style.display = "inline-flex";
+    el.href = url;
+    el.target = "_blank";
+    el.rel = "noopener";
+    el.addEventListener("click", () => {
+      track("buy_click", { id, goal: state.goal || "none", level: state.level || "none" });
+    });
   });
 }
 
 function setAccessLinks() {
   const url = safeText(CLASSROOM_URL);
-
   ACCESS_IDS.forEach((id) => {
     const el = document.getElementById(id);
     if (!el) return;
 
-    if (url) {
-      el.setAttribute("href", url);
-      el.setAttribute("target", "_blank");
-      el.setAttribute("rel", "noopener");
-      el.addEventListener("click", () => track("access_click", { id, via: "classroom" }), { once: true });
-    } else {
-      // fallback: WhatsApp (intención acceso)
-      el.setAttribute("href", buildWhatsAppLink({ goal: state.goal, level: state.level, intent: "access" }));
-      el.setAttribute("target", "_blank");
-      el.setAttribute("rel", "noopener");
-      el.addEventListener("click", () => track("access_click", { id, via: "whatsapp" }), { once: true });
+    if (isPlaceholderUrl(url)) {
+      el.href = "#contacto";
+      el.removeAttribute("target");
+      el.removeAttribute("rel");
+      el.addEventListener(
+        "click",
+        () => track("access_click_placeholder", { id }),
+        { once: true }
+      );
+      return;
     }
+
+    el.href = url;
+    el.target = "_blank";
+    el.rel = "noopener";
+    el.addEventListener("click", () => {
+      track("access_click", { id });
+    });
   });
 }
 
@@ -324,7 +293,7 @@ function initReveal() {
   items.forEach((el) => io.observe(el));
 }
 
-// ===== Chips + CTA (adaptado a asincrónico) =====
+// ===== Chips + CTA PRO =====
 function initChips() {
   const chips = Array.from(document.querySelectorAll(".chip"));
   const miniGoal = document.getElementById("miniGoal");
@@ -335,10 +304,10 @@ function initChips() {
   const ctaContact = document.getElementById("ctaWhatsContact");
 
   const ctaLabelsHero = {
-    "Trabajo / entrevistas": "Consultar curso para trabajo",
-    "Conversación / fluidez": "Consultar curso de fluidez",
-    "Viajes": "Consultar curso para viajes",
-    "Exámenes": "Consultar curso para exámenes"
+    "Trabajo / entrevistas": "Quiero preparar entrevistas",
+    "Conversación / fluidez": "Quiero ganar fluidez",
+    "Viajes": "Quiero inglés para viajes",
+    "Exámenes": "Quiero preparar un examen"
   };
 
   function updateCTA() {
@@ -346,8 +315,8 @@ function initChips() {
       const label = ctaLabelsHero[state.goal] || "Consultar por WhatsApp";
       ctaHero.innerHTML = `<i class="fab fa-whatsapp"></i> ${label}`;
     }
-    if (ctaSection) ctaSection.innerHTML = `<i class="fab fa-whatsapp"></i> Consultar por WhatsApp`;
-    if (ctaContact) ctaContact.innerHTML = `<i class="fab fa-whatsapp"></i> Consultar por WhatsApp`;
+    if (ctaSection) ctaSection.innerHTML = `<i class="fab fa-whatsapp"></i> Abrir WhatsApp`;
+    if (ctaContact) ctaContact.innerHTML = `<i class="fab fa-whatsapp"></i> Abrir WhatsApp`;
   }
 
   const updateMini = () => {
@@ -369,11 +338,7 @@ function initChips() {
       applyActiveChip();
       updateMini();
       persistState();
-
-      // Rewire links dependientes de goal/level
-      setWhatsLinks("info");
-      setBuyLinks();
-      setAccessLinks();
+      setWhatsLinks();
 
       track("select_goal", { goal: state.goal || "none" });
       ctaHero?.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -382,17 +347,14 @@ function initChips() {
 
   applyActiveChip();
   updateMini();
+  setWhatsLinks();
 
   return {
     setLevel: (lvl) => {
       state.level = safeText(lvl);
       updateMini();
       persistState();
-
-      setWhatsLinks("info");
-      setBuyLinks();
-      setAccessLinks();
-
+      setWhatsLinks();
       track("set_level", { level: state.level || "none" });
     },
     setGoal: (g) => {
@@ -400,11 +362,7 @@ function initChips() {
       applyActiveChip();
       updateMini();
       persistState();
-
-      setWhatsLinks("info");
-      setBuyLinks();
-      setAccessLinks();
-
+      setWhatsLinks();
       track("select_goal", { goal: state.goal || "none" });
     }
   };
@@ -412,7 +370,6 @@ function initChips() {
 
 // =====================================================
 // TEST 25 (A1–C1) · 5 secciones <details> + progreso + persistencia
-// Compatible con tu HTML: sec_s1..sec_s5, secProg_s1..secProg_s5
 // =====================================================
 const TEST = {
   correct: {
@@ -568,17 +525,15 @@ function initLevelTest(chipState) {
     if (!out) return;
     out.innerHTML =
       `<strong>Resultado:</strong> ${score}/25 · <strong>${level}</strong>. ` +
-      `<span class="muted">Orientativo. Te recomendamos el módulo ideal del curso.</span>`;
+      `<span class="muted">Orientativo. Te asesoramos y armamos el plan ideal.</span>`;
     out.scrollIntoView({ behavior: "smooth", block: "center" });
   }
 
-  // Restaurar radios
   Object.entries(st.answers).forEach(([k, v]) => {
     const input = root.querySelector(`input[name="${k}"][value="${v}"]`);
     if (input) input.checked = true;
   });
 
-  // Solo una sección abierta
   Object.values(detailsById).forEach((det) => {
     if (!det) return;
     det.addEventListener("toggle", () => {
@@ -606,7 +561,6 @@ function initLevelTest(chipState) {
 
     track("test_answer", { q: name, value: val });
 
-    // Auto-advance por sección
     const qNum = Number(name.slice(1));
     const currentSec = TEST.sections.find((s) => qNum >= s.from && qNum <= s.to);
     if (currentSec) {
@@ -647,9 +601,7 @@ function initLevelTest(chipState) {
     else {
       state.level = st.level;
       persistState();
-      setWhatsLinks("info");
-      setBuyLinks();
-      setAccessLinks();
+      setWhatsLinks();
     }
 
     track("test_finish", { score: st.score, level: st.level });
@@ -674,9 +626,7 @@ function initLevelTest(chipState) {
     else {
       state.level = "";
       persistState();
-      setWhatsLinks("info");
-      setBuyLinks();
-      setAccessLinks();
+      setWhatsLinks();
     }
 
     openSection(TEST.sections[0]?.id || "s1");
@@ -740,18 +690,15 @@ function initForm(chipState) {
       else {
         state.goal = val;
         persistState();
-        setWhatsLinks("info");
-        setBuyLinks();
-        setAccessLinks();
+        setWhatsLinks();
       }
-
       track("select_goal_form", { goal: val });
     });
   }
 
   form.addEventListener("submit", () => {
     msg.textContent = "Enviando…";
-    track("lead_submit", { goal: state.goal || "none", level: state.level || "none", product: MP_ITEM_NAME });
+    track("lead_submit", { goal: state.goal || "none", level: state.level || "none" });
   });
 }
 
@@ -761,12 +708,15 @@ function initWhatsTracking() {
     const el = document.getElementById(id);
     if (!el) return;
     el.addEventListener("click", () => {
-      track("whatsapp_click", { id, goal: state.goal || "none", level: state.level || "none" });
+      track("whatsapp_click", {
+        id,
+        goal: state.goal || "none",
+        level: state.level || "none"
+      });
     });
   });
 }
 
-// ===== Init =====
 document.addEventListener("DOMContentLoaded", () => {
   restoreState();
 
@@ -783,8 +733,12 @@ document.addEventListener("DOMContentLoaded", () => {
   initForm(chipState);
   initWhatsTracking();
 
-  // Wiring dinámico (depende de goal/level)
-  setWhatsLinks("info");
+  // NUEVO: links de compra y acceso
   setBuyLinks();
   setAccessLinks();
+
+  // refresca WhatsApp
+  setWhatsLinks();
+  initCheckoutLinks();
+
 });

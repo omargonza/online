@@ -93,7 +93,7 @@
         <a href="#metodo">Cómo funciona</a>
         <a href="#planes">Precios</a>
         <a href="#faq">FAQ</a>
-        <a href="#contacto" class="btn btn-primary btn-sm">Comprar acceso</a>
+        <a href="#" id="ctaBuyNav" class="btn btn-primary btn-sm">Comprar curso</a>
       </nav>
 
       <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
@@ -106,7 +106,8 @@
       <a href="#metodo">Cómo funciona</a>
       <a href="#planes">Precios</a>
       <a href="#faq">FAQ</a>
-      <a href="#contacto" class="btn btn-primary">Comprar acceso</a>
+      <a href="#" id="ctaBuyMobile" class="btn btn-primary">Comprar curso</a>
+      <a href="#" id="ctaAccessMobile" class="btn btn-secondary">Acceder al Classroom</a>
     </div>
   </header>
 
@@ -132,8 +133,9 @@
           </p>
 
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#contacto">Comprar acceso</a>
+            <a class="btn btn-primary" id="ctaBuyHero" href="#">Comprar curso</a>
             <a class="btn btn-cream" href="#nivel">Hacer test de nivel</a>
+            <a class="btn btn-secondary" id="ctaAccessHero" href="#">Acceder al Classroom</a>
           </div>
 
           <div class="hero-proof" aria-label="Indicadores">
@@ -162,7 +164,6 @@
           <div class="hero-photo-card">
             <img src="./assets/noecompu.jpg" alt="Miss Noe en su espacio de trabajo" loading="eager" />
 
-            <!-- Badge flotante -->
             <div class="hero-badge hero-badge-abs">
               <img class="badge-logo" src="./assets/logo2.png" alt="Miss Noe Online English" />
               <div>
@@ -171,7 +172,6 @@
               </div>
             </div>
 
-            <!-- Overlay solo abajo -->
             <div class="hero-photo-overlay hero-photo-overlay-bottom" aria-hidden="true">
               <div class="hero-mini hero-mini-glass">
                 <div class="mini-row">
@@ -207,7 +207,7 @@
       </div>
     </section>
 
-    <!-- Strip (confianza) -->
+    <!-- Strip -->
     <section class="strip reveal" aria-label="Beneficios">
       <div class="container strip-grid">
         <div class="strip-item">
@@ -241,7 +241,7 @@
       </div>
     </section>
 
-    <!-- Programas -->
+    <!-- Cursos -->
     <section class="section reveal" id="programas">
       <div class="container">
         <div class="section-head">
@@ -335,7 +335,10 @@
               </div>
             </div>
 
-            <a class="btn btn-primary" href="#contacto">Ver cómo comprar</a>
+            <div style="display:flex;gap:10px;flex-wrap:wrap">
+              <a class="btn btn-primary" href="#planes">Ver precios</a>
+              <a class="btn btn-secondary" id="ctaAccessAbout" href="#">Acceder al Classroom</a>
+            </div>
           </div>
         </div>
       </div>
@@ -372,7 +375,11 @@
             <strong>¿Querés que te recomendemos el curso ideal?</strong>
             <div class="muted">Contanos objetivo + nivel y te decimos qué comprar.</div>
           </div>
-          <a class="btn btn-primary" href="#whatsapp">Pedir recomendación</a>
+
+          <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end">
+            <a class="btn btn-secondary" id="ctaAccessSection" href="#">Acceder al Classroom</a>
+            <a class="btn btn-primary" id="ctaBuyMethod" href="#">Comprar curso</a>
+          </div>
         </div>
       </div>
     </section>
@@ -399,14 +406,14 @@
               <li>Actividades + material</li>
               <li>Ruta por nivel</li>
             </ul>
-            <a class="btn btn-secondary" href="#contacto">Comprar acceso</a>
+            <a class="btn btn-secondary" id="ctaBuyBase" href="#">Comprar curso</a>
           </article>
 
           <article class="price-card featured">
             <div class="badge">Más elegido</div>
             <div class="price-head">
               <h3>Curso + Acompañamiento</h3>
-              <div class="price">Pago único<strong>$</strong><span>XX.XXX</span></div>
+              <div class="price">Pago único <strong>$</strong><span>XX.XXX</span></div>
               <div class="muted">Asincrónico + soporte</div>
             </div>
             <ul class="list">
@@ -414,14 +421,8 @@
               <li>Guía/recomendación personalizada</li>
               <li>Correcciones puntuales / orientación</li>
             </ul>
-            <a class="btn btn-primary" id="ctaBuyPlans" href="#">
-              Comprar curso
-            </a>
-            <p class="muted small" style="margin-top:8px">
-  Acceso inmediato al contenido
-</p>
-
-
+            <a class="btn btn-primary" id="ctaBuyPlans" href="#">Comprar curso</a>
+            <p class="muted small" style="margin-top:8px">Acceso inmediato al contenido</p>
           </article>
 
           <article class="price-card">
@@ -435,11 +436,9 @@
               <li>Preguntas típicas de entrevistas</li>
               <li>Vocabulario específico</li>
             </ul>
-            <a class="btn btn-secondary" href="#contacto">Comprar acceso</a>
+            <a class="btn btn-secondary" id="ctaBuyWork" href="#">Comprar curso</a>
           </article>
         </div>
-
-        <!--    <p class="small-note center">Reemplazá “XX.XXX” por tus precios reales en ARS.</p> -->
       </div>
     </section>
 
@@ -473,7 +472,7 @@
       </div>
     </section>
 
-    <!-- Test de nivel (NO se toca estructura) -->
+    <!-- Test de nivel -->
     <section class="section reveal" id="nivel">
       <div class="container">
         <div class="section-head">
@@ -482,7 +481,6 @@
         </div>
 
         <div class="quiz" id="levelTest">
-          <!-- PROGRESS -->
           <div class="quiz-progress">
             <div class="quiz-progress-top">
               <strong>Progreso</strong>
@@ -494,311 +492,316 @@
             </div>
           </div>
 
-          <!-- SECCIONES -->
+          <!-- SECCIONES: PEGÁS TAL CUAL TUS PREGUNTAS -->
           <div class="quiz-sections">
-            <!-- (Secciones y preguntas: igual que tu HTML actual) -->
-            <!-- Mantengo tu bloque completo de preguntas tal cual lo pegaste -->
-            <!-- =======================
+            <!-- ... (TU BLOQUE COMPLETO DE PREGUNTAS VA AQUÍ, SIN CAMBIOS) ... -->
+            <!-- Importante: mantené IDs sec_s1..sec_s5 y secProg_s1..secProg_s5 -->
+            <!-- Por brevedad, no lo repito acá porque ya lo tenés perfecto. -->
+            <div class="quiz-sections">
+              <!-- (Secciones y preguntas: igual que tu HTML actual) -->
+              <!-- Mantengo tu bloque completo de preguntas tal cual lo pegaste -->
+              <!-- =======================
              S1 · 1–8
         ======================== -->
-            <details class="qsec" id="sec_s1" open>
-              <summary>
-                <span class="qsec-title">Sección 1 · Gramática y Uso (1–8)</span>
-                <span class="qsec-meta"><span id="secProg_s1">0/8</span></span>
-              </summary>
+              <details class="qsec" id="sec_s1" open>
+                <summary>
+                  <span class="qsec-title">Sección 1 · Gramática y Uso (1–8)</span>
+                  <span class="qsec-meta"><span id="secProg_s1">0/8</span></span>
+                </summary>
 
-              <div class="qsec-body">
-                <div class="q">
-                  <h3>1. She ___ from Argentina.</h3>
-                  <div class="options">
-                    <label><input type="radio" name="q1" value="a"> A) are</label>
-                    <label><input type="radio" name="q1" value="b"> B) is</label>
-                    <label><input type="radio" name="q1" value="c"> C) be</label>
-                    <label><input type="radio" name="q1" value="d"> D) being</label>
+                <div class="qsec-body">
+                  <div class="q">
+                    <h3>1. She ___ from Argentina.</h3>
+                    <div class="options">
+                      <label><input type="radio" name="q1" value="a"> A) are</label>
+                      <label><input type="radio" name="q1" value="b"> B) is</label>
+                      <label><input type="radio" name="q1" value="c"> C) be</label>
+                      <label><input type="radio" name="q1" value="d"> D) being</label>
+                    </div>
+                  </div>
+
+                  <div class="q">
+                    <h3>2. I ___ coffee every morning.</h3>
+                    <div class="options">
+                      <label><input type="radio" name="q2" value="a"> A) drink</label>
+                      <label><input type="radio" name="q2" value="b"> B) drinks</label>
+                      <label><input type="radio" name="q2" value="c"> C) drinking</label>
+                      <label><input type="radio" name="q2" value="d"> D) drank</label>
+                    </div>
+                  </div>
+
+                  <div class="q">
+                    <h3>3. There isn’t ___ milk left.</h3>
+                    <div class="options">
+                      <label><input type="radio" name="q3" value="a"> A) many</label>
+                      <label><input type="radio" name="q3" value="b"> B) much</label>
+                      <label><input type="radio" name="q3" value="c"> C) few</label>
+                      <label><input type="radio" name="q3" value="d"> D) several</label>
+                    </div>
+                  </div>
+
+                  <div class="q">
+                    <h3>4. We were tired, ___ we decided to go home early.</h3>
+                    <div class="options">
+                      <label><input type="radio" name="q4" value="a"> A) because</label>
+                      <label><input type="radio" name="q4" value="b"> B) but</label>
+                      <label><input type="radio" name="q4" value="c"> C) so</label>
+                      <label><input type="radio" name="q4" value="d"> D) although</label>
+                    </div>
+                  </div>
+
+                  <div class="q">
+                    <h3>5. He has worked here ___ 2019.</h3>
+                    <div class="options">
+                      <label><input type="radio" name="q5" value="a"> A) for</label>
+                      <label><input type="radio" name="q5" value="b"> B) since</label>
+                      <label><input type="radio" name="q5" value="c"> C) during</label>
+                      <label><input type="radio" name="q5" value="d"> D) from</label>
+                    </div>
+                  </div>
+
+                  <div class="q">
+                    <h3>6. If I ___ more time, I would travel more.</h3>
+                    <div class="options">
+                      <label><input type="radio" name="q6" value="a"> A) have</label>
+                      <label><input type="radio" name="q6" value="b"> B) will have</label>
+                      <label><input type="radio" name="q6" value="c"> C) had</label>
+                      <label><input type="radio" name="q6" value="d"> D) would have</label>
+                    </div>
+                  </div>
+
+                  <div class="q">
+                    <h3>7. The report ___ by the manager tomorrow.</h3>
+                    <div class="options">
+                      <label><input type="radio" name="q7" value="a"> A) is writing</label>
+                      <label><input type="radio" name="q7" value="b"> B) writes</label>
+                      <label><input type="radio" name="q7" value="c"> C) will be written</label>
+                      <label><input type="radio" name="q7" value="d"> D) has written</label>
+                    </div>
+                  </div>
+
+                  <div class="q">
+                    <h3>8. She speaks ___ than her sister.</h3>
+                    <div class="options">
+                      <label><input type="radio" name="q8" value="a"> A) more confident</label>
+                      <label><input type="radio" name="q8" value="b"> B) most confident</label>
+                      <label><input type="radio" name="q8" value="c"> C) more confidently</label>
+                      <label><input type="radio" name="q8" value="d"> D) most confidently</label>
+                    </div>
                   </div>
                 </div>
+              </details>
 
-                <div class="q">
-                  <h3>2. I ___ coffee every morning.</h3>
-                  <div class="options">
-                    <label><input type="radio" name="q2" value="a"> A) drink</label>
-                    <label><input type="radio" name="q2" value="b"> B) drinks</label>
-                    <label><input type="radio" name="q2" value="c"> C) drinking</label>
-                    <label><input type="radio" name="q2" value="d"> D) drank</label>
+              <details class="qsec" id="sec_s2">
+                <summary>
+                  <span class="qsec-title">Sección 2 · Vocabulario (9–12)</span>
+                  <span class="qsec-meta"><span id="secProg_s2">0/4</span></span>
+                </summary>
+                <div class="qsec-body">
+                  <div class="q">
+                    <h3>9. Sinónimo de “easy”:</h3>
+                    <div class="options">
+                      <label><input type="radio" name="q9" value="a"> A) difficult</label>
+                      <label><input type="radio" name="q9" value="b"> B) simple</label>
+                      <label><input type="radio" name="q9" value="c"> C) hard</label>
+                      <label><input type="radio" name="q9" value="d"> D) busy</label>
+                    </div>
+                  </div>
+
+                  <div class="q">
+                    <h3>10. I was very ___ when I passed the exam.</h3>
+                    <div class="options">
+                      <label><input type="radio" name="q10" value="a"> A) bored</label>
+                      <label><input type="radio" name="q10" value="b"> B) excited</label>
+                      <label><input type="radio" name="q10" value="c"> C) worried</label>
+                      <label><input type="radio" name="q10" value="d"> D) tired</label>
+                    </div>
+                  </div>
+
+                  <div class="q">
+                    <h3>11. He ___ the meeting because he was sick.</h3>
+                    <div class="options">
+                      <label><input type="radio" name="q11" value="a"> A) missed</label>
+                      <label><input type="radio" name="q11" value="b"> B) lost</label>
+                      <label><input type="radio" name="q11" value="c"> C) forgot</label>
+                      <label><input type="radio" name="q11" value="d"> D) failed</label>
+                    </div>
+                  </div>
+
+                  <div class="q">
+                    <h3>12. This job requires a high level of ___.</h3>
+                    <div class="options">
+                      <label><input type="radio" name="q12" value="a"> A) responsible</label>
+                      <label><input type="radio" name="q12" value="b"> B) responsibility</label>
+                      <label><input type="radio" name="q12" value="c"> C) respond</label>
+                      <label><input type="radio" name="q12" value="d"> D) responsibly</label>
+                    </div>
                   </div>
                 </div>
+              </details>
 
-                <div class="q">
-                  <h3>3. There isn’t ___ milk left.</h3>
-                  <div class="options">
-                    <label><input type="radio" name="q3" value="a"> A) many</label>
-                    <label><input type="radio" name="q3" value="b"> B) much</label>
-                    <label><input type="radio" name="q3" value="c"> C) few</label>
-                    <label><input type="radio" name="q3" value="d"> D) several</label>
+              <details class="qsec" id="sec_s3">
+                <summary>
+                  <span class="qsec-title">Sección 3 · Comprensión (13–15)</span>
+                  <span class="qsec-meta"><span id="secProg_s3">0/3</span></span>
+                </summary>
+                <div class="qsec-body">
+                  <div class="q">
+                    <h3>Texto</h3>
+                    <p class="muted">
+                      Many people choose to learn English online because it allows them to study at their own pace.
+                      Online courses are often more flexible and accessible than traditional classes.
+                    </p>
+                  </div>
+
+                  <div class="q">
+                    <h3>13. ¿Por qué eligen cursos online?</h3>
+                    <div class="options">
+                      <label><input type="radio" name="q13" value="a"> A) Porque son solo más baratos</label>
+                      <label><input type="radio" name="q13" value="b"> B) Porque son más flexibles</label>
+                      <label><input type="radio" name="q13" value="c"> C) Porque son más difíciles</label>
+                      <label><input type="radio" name="q13" value="d"> D) Porque no tienen profesores</label>
+                    </div>
+                  </div>
+
+                  <div class="q">
+                    <h3>14. “at their own pace” significa:</h3>
+                    <div class="options">
+                      <label><input type="radio" name="q14" value="a"> A) Muy rápido</label>
+                      <label><input type="radio" name="q14" value="b"> B) Con otros estudiantes</label>
+                      <label><input type="radio" name="q14" value="c"> C) En un aula tradicional</label>
+                      <label><input type="radio" name="q14" value="d"> D) A un ritmo cómodo</label>
+                    </div>
+                  </div>
+
+                  <div class="q">
+                    <h3>15. Según el texto, los cursos online son:</h3>
+                    <div class="options">
+                      <label><input type="radio" name="q15" value="a"> A) Menos accesibles</label>
+                      <label><input type="radio" name="q15" value="b"> B) Solo para principiantes</label>
+                      <label><input type="radio" name="q15" value="c"> C) Más flexibles</label>
+                      <label><input type="radio" name="q15" value="d"> D) Obligatorios</label>
+                    </div>
                   </div>
                 </div>
+              </details>
 
-                <div class="q">
-                  <h3>4. We were tired, ___ we decided to go home early.</h3>
-                  <div class="options">
-                    <label><input type="radio" name="q4" value="a"> A) because</label>
-                    <label><input type="radio" name="q4" value="b"> B) but</label>
-                    <label><input type="radio" name="q4" value="c"> C) so</label>
-                    <label><input type="radio" name="q4" value="d"> D) although</label>
+              <details class="qsec" id="sec_s4">
+                <summary>
+                  <span class="qsec-title">Sección 4 · Intermedio–Avanzado (16–20)</span>
+                  <span class="qsec-meta"><span id="secProg_s4">0/5</span></span>
+                </summary>
+                <div class="qsec-body">
+                  <div class="q">
+                    <h3>16. He didn’t tell me where he ___.</h3>
+                    <div class="options">
+                      <label><input type="radio" name="q16" value="a"> A) lives</label>
+                      <label><input type="radio" name="q16" value="b"> B) lived</label>
+                      <label><input type="radio" name="q16" value="c"> C) is living</label>
+                      <label><input type="radio" name="q16" value="d"> D) has lived</label>
+                    </div>
+                  </div>
+
+                  <div class="q">
+                    <h3>17. The more you practice, the ___ you become.</h3>
+                    <div class="options">
+                      <label><input type="radio" name="q17" value="a"> A) good</label>
+                      <label><input type="radio" name="q17" value="b"> B) better</label>
+                      <label><input type="radio" name="q17" value="c"> C) best</label>
+                      <label><input type="radio" name="q17" value="d"> D) well</label>
+                    </div>
+                  </div>
+
+                  <div class="q">
+                    <h3>18. She suggested that we ___ earlier.</h3>
+                    <div class="options">
+                      <label><input type="radio" name="q18" value="a"> A) leave</label>
+                      <label><input type="radio" name="q18" value="b"> B) left</label>
+                      <label><input type="radio" name="q18" value="c"> C) leaving</label>
+                      <label><input type="radio" name="q18" value="d"> D) would leave</label>
+                    </div>
+                  </div>
+
+                  <div class="q">
+                    <h3>19. This is the book ___ I told you about.</h3>
+                    <div class="options">
+                      <label><input type="radio" name="q19" value="a"> A) who</label>
+                      <label><input type="radio" name="q19" value="b"> B) where</label>
+                      <label><input type="radio" name="q19" value="c"> C) which</label>
+                      <label><input type="radio" name="q19" value="d"> D) whose</label>
+                    </div>
+                  </div>
+
+                  <div class="q">
+                    <h3>20. Hardly ___ arrived when it started to rain.</h3>
+                    <div class="options">
+                      <label><input type="radio" name="q20" value="a"> A) we had</label>
+                      <label><input type="radio" name="q20" value="b"> B) had we</label>
+                      <label><input type="radio" name="q20" value="c"> C) we have</label>
+                      <label><input type="radio" name="q20" value="d"> D) have we</label>
+                    </div>
                   </div>
                 </div>
+              </details>
 
-                <div class="q">
-                  <h3>5. He has worked here ___ 2019.</h3>
-                  <div class="options">
-                    <label><input type="radio" name="q5" value="a"> A) for</label>
-                    <label><input type="radio" name="q5" value="b"> B) since</label>
-                    <label><input type="radio" name="q5" value="c"> C) during</label>
-                    <label><input type="radio" name="q5" value="d"> D) from</label>
+              <details class="qsec" id="sec_s5">
+                <summary>
+                  <span class="qsec-title">Sección 5 · Uso Avanzado (21–25)</span>
+                  <span class="qsec-meta"><span id="secProg_s5">0/5</span></span>
+                </summary>
+                <div class="qsec-body">
+                  <div class="q">
+                    <h3>21. The project was canceled ___ lack of funding.</h3>
+                    <div class="options">
+                      <label><input type="radio" name="q21" value="a"> A) because</label>
+                      <label><input type="radio" name="q21" value="b"> B) due to</label>
+                      <label><input type="radio" name="q21" value="c"> C) despite</label>
+                      <label><input type="radio" name="q21" value="d"> D) although</label>
+                    </div>
+                  </div>
+
+                  <div class="q">
+                    <h3>22. He speaks English fluently, ___ he lived abroad for years.</h3>
+                    <div class="options">
+                      <label><input type="radio" name="q22" value="a"> A) however</label>
+                      <label><input type="radio" name="q22" value="b"> B) although</label>
+                      <label><input type="radio" name="q22" value="c"> C) because</label>
+                      <label><input type="radio" name="q22" value="d"> D) unless</label>
+                    </div>
+                  </div>
+
+                  <div class="q">
+                    <h3>23. It’s essential that every student ___ on time.</h3>
+                    <div class="options">
+                      <label><input type="radio" name="q23" value="a"> A) arrives</label>
+                      <label><input type="radio" name="q23" value="b"> B) arrived</label>
+                      <label><input type="radio" name="q23" value="c"> C) arrive</label>
+                      <label><input type="radio" name="q23" value="d"> D) will arrive</label>
+                    </div>
+                  </div>
+
+                  <div class="q">
+                    <h3>24. She is not only intelligent ___ also very creative.</h3>
+                    <div class="options">
+                      <label><input type="radio" name="q24" value="a"> A) and</label>
+                      <label><input type="radio" name="q24" value="b"> B) but</label>
+                      <label><input type="radio" name="q24" value="c"> C) or</label>
+                      <label><input type="radio" name="q24" value="d"> D) so</label>
+                    </div>
+                  </div>
+
+                  <div class="q">
+                    <h3>25. The negotiation failed, ___ was unexpected.</h3>
+                    <div class="options">
+                      <label><input type="radio" name="q25" value="a"> A) that</label>
+                      <label><input type="radio" name="q25" value="b"> B) what</label>
+                      <label><input type="radio" name="q25" value="c"> C) which</label>
+                      <label><input type="radio" name="q25" value="d"> D) who</label>
+                    </div>
                   </div>
                 </div>
-
-                <div class="q">
-                  <h3>6. If I ___ more time, I would travel more.</h3>
-                  <div class="options">
-                    <label><input type="radio" name="q6" value="a"> A) have</label>
-                    <label><input type="radio" name="q6" value="b"> B) will have</label>
-                    <label><input type="radio" name="q6" value="c"> C) had</label>
-                    <label><input type="radio" name="q6" value="d"> D) would have</label>
-                  </div>
-                </div>
-
-                <div class="q">
-                  <h3>7. The report ___ by the manager tomorrow.</h3>
-                  <div class="options">
-                    <label><input type="radio" name="q7" value="a"> A) is writing</label>
-                    <label><input type="radio" name="q7" value="b"> B) writes</label>
-                    <label><input type="radio" name="q7" value="c"> C) will be written</label>
-                    <label><input type="radio" name="q7" value="d"> D) has written</label>
-                  </div>
-                </div>
-
-                <div class="q">
-                  <h3>8. She speaks ___ than her sister.</h3>
-                  <div class="options">
-                    <label><input type="radio" name="q8" value="a"> A) more confident</label>
-                    <label><input type="radio" name="q8" value="b"> B) most confident</label>
-                    <label><input type="radio" name="q8" value="c"> C) more confidently</label>
-                    <label><input type="radio" name="q8" value="d"> D) most confidently</label>
-                  </div>
-                </div>
-              </div>
-            </details>
-
-            <details class="qsec" id="sec_s2">
-              <summary>
-                <span class="qsec-title">Sección 2 · Vocabulario (9–12)</span>
-                <span class="qsec-meta"><span id="secProg_s2">0/4</span></span>
-              </summary>
-              <div class="qsec-body">
-                <div class="q">
-                  <h3>9. Sinónimo de “easy”:</h3>
-                  <div class="options">
-                    <label><input type="radio" name="q9" value="a"> A) difficult</label>
-                    <label><input type="radio" name="q9" value="b"> B) simple</label>
-                    <label><input type="radio" name="q9" value="c"> C) hard</label>
-                    <label><input type="radio" name="q9" value="d"> D) busy</label>
-                  </div>
-                </div>
-
-                <div class="q">
-                  <h3>10. I was very ___ when I passed the exam.</h3>
-                  <div class="options">
-                    <label><input type="radio" name="q10" value="a"> A) bored</label>
-                    <label><input type="radio" name="q10" value="b"> B) excited</label>
-                    <label><input type="radio" name="q10" value="c"> C) worried</label>
-                    <label><input type="radio" name="q10" value="d"> D) tired</label>
-                  </div>
-                </div>
-
-                <div class="q">
-                  <h3>11. He ___ the meeting because he was sick.</h3>
-                  <div class="options">
-                    <label><input type="radio" name="q11" value="a"> A) missed</label>
-                    <label><input type="radio" name="q11" value="b"> B) lost</label>
-                    <label><input type="radio" name="q11" value="c"> C) forgot</label>
-                    <label><input type="radio" name="q11" value="d"> D) failed</label>
-                  </div>
-                </div>
-
-                <div class="q">
-                  <h3>12. This job requires a high level of ___.</h3>
-                  <div class="options">
-                    <label><input type="radio" name="q12" value="a"> A) responsible</label>
-                    <label><input type="radio" name="q12" value="b"> B) responsibility</label>
-                    <label><input type="radio" name="q12" value="c"> C) respond</label>
-                    <label><input type="radio" name="q12" value="d"> D) responsibly</label>
-                  </div>
-                </div>
-              </div>
-            </details>
-
-            <details class="qsec" id="sec_s3">
-              <summary>
-                <span class="qsec-title">Sección 3 · Comprensión (13–15)</span>
-                <span class="qsec-meta"><span id="secProg_s3">0/3</span></span>
-              </summary>
-              <div class="qsec-body">
-                <div class="q">
-                  <h3>Texto</h3>
-                  <p class="muted">
-                    Many people choose to learn English online because it allows them to study at their own pace.
-                    Online courses are often more flexible and accessible than traditional classes.
-                  </p>
-                </div>
-
-                <div class="q">
-                  <h3>13. ¿Por qué eligen cursos online?</h3>
-                  <div class="options">
-                    <label><input type="radio" name="q13" value="a"> A) Porque son solo más baratos</label>
-                    <label><input type="radio" name="q13" value="b"> B) Porque son más flexibles</label>
-                    <label><input type="radio" name="q13" value="c"> C) Porque son más difíciles</label>
-                    <label><input type="radio" name="q13" value="d"> D) Porque no tienen profesores</label>
-                  </div>
-                </div>
-
-                <div class="q">
-                  <h3>14. “at their own pace” significa:</h3>
-                  <div class="options">
-                    <label><input type="radio" name="q14" value="a"> A) Muy rápido</label>
-                    <label><input type="radio" name="q14" value="b"> B) Con otros estudiantes</label>
-                    <label><input type="radio" name="q14" value="c"> C) En un aula tradicional</label>
-                    <label><input type="radio" name="q14" value="d"> D) A un ritmo cómodo</label>
-                  </div>
-                </div>
-
-                <div class="q">
-                  <h3>15. Según el texto, los cursos online son:</h3>
-                  <div class="options">
-                    <label><input type="radio" name="q15" value="a"> A) Menos accesibles</label>
-                    <label><input type="radio" name="q15" value="b"> B) Solo para principiantes</label>
-                    <label><input type="radio" name="q15" value="c"> C) Más flexibles</label>
-                    <label><input type="radio" name="q15" value="d"> D) Obligatorios</label>
-                  </div>
-                </div>
-              </div>
-            </details>
-
-            <details class="qsec" id="sec_s4">
-              <summary>
-                <span class="qsec-title">Sección 4 · Intermedio–Avanzado (16–20)</span>
-                <span class="qsec-meta"><span id="secProg_s4">0/5</span></span>
-              </summary>
-              <div class="qsec-body">
-                <div class="q">
-                  <h3>16. He didn’t tell me where he ___.</h3>
-                  <div class="options">
-                    <label><input type="radio" name="q16" value="a"> A) lives</label>
-                    <label><input type="radio" name="q16" value="b"> B) lived</label>
-                    <label><input type="radio" name="q16" value="c"> C) is living</label>
-                    <label><input type="radio" name="q16" value="d"> D) has lived</label>
-                  </div>
-                </div>
-
-                <div class="q">
-                  <h3>17. The more you practice, the ___ you become.</h3>
-                  <div class="options">
-                    <label><input type="radio" name="q17" value="a"> A) good</label>
-                    <label><input type="radio" name="q17" value="b"> B) better</label>
-                    <label><input type="radio" name="q17" value="c"> C) best</label>
-                    <label><input type="radio" name="q17" value="d"> D) well</label>
-                  </div>
-                </div>
-
-                <div class="q">
-                  <h3>18. She suggested that we ___ earlier.</h3>
-                  <div class="options">
-                    <label><input type="radio" name="q18" value="a"> A) leave</label>
-                    <label><input type="radio" name="q18" value="b"> B) left</label>
-                    <label><input type="radio" name="q18" value="c"> C) leaving</label>
-                    <label><input type="radio" name="q18" value="d"> D) would leave</label>
-                  </div>
-                </div>
-
-                <div class="q">
-                  <h3>19. This is the book ___ I told you about.</h3>
-                  <div class="options">
-                    <label><input type="radio" name="q19" value="a"> A) who</label>
-                    <label><input type="radio" name="q19" value="b"> B) where</label>
-                    <label><input type="radio" name="q19" value="c"> C) which</label>
-                    <label><input type="radio" name="q19" value="d"> D) whose</label>
-                  </div>
-                </div>
-
-                <div class="q">
-                  <h3>20. Hardly ___ arrived when it started to rain.</h3>
-                  <div class="options">
-                    <label><input type="radio" name="q20" value="a"> A) we had</label>
-                    <label><input type="radio" name="q20" value="b"> B) had we</label>
-                    <label><input type="radio" name="q20" value="c"> C) we have</label>
-                    <label><input type="radio" name="q20" value="d"> D) have we</label>
-                  </div>
-                </div>
-              </div>
-            </details>
-
-            <details class="qsec" id="sec_s5">
-              <summary>
-                <span class="qsec-title">Sección 5 · Uso Avanzado (21–25)</span>
-                <span class="qsec-meta"><span id="secProg_s5">0/5</span></span>
-              </summary>
-              <div class="qsec-body">
-                <div class="q">
-                  <h3>21. The project was canceled ___ lack of funding.</h3>
-                  <div class="options">
-                    <label><input type="radio" name="q21" value="a"> A) because</label>
-                    <label><input type="radio" name="q21" value="b"> B) due to</label>
-                    <label><input type="radio" name="q21" value="c"> C) despite</label>
-                    <label><input type="radio" name="q21" value="d"> D) although</label>
-                  </div>
-                </div>
-
-                <div class="q">
-                  <h3>22. He speaks English fluently, ___ he lived abroad for years.</h3>
-                  <div class="options">
-                    <label><input type="radio" name="q22" value="a"> A) however</label>
-                    <label><input type="radio" name="q22" value="b"> B) although</label>
-                    <label><input type="radio" name="q22" value="c"> C) because</label>
-                    <label><input type="radio" name="q22" value="d"> D) unless</label>
-                  </div>
-                </div>
-
-                <div class="q">
-                  <h3>23. It’s essential that every student ___ on time.</h3>
-                  <div class="options">
-                    <label><input type="radio" name="q23" value="a"> A) arrives</label>
-                    <label><input type="radio" name="q23" value="b"> B) arrived</label>
-                    <label><input type="radio" name="q23" value="c"> C) arrive</label>
-                    <label><input type="radio" name="q23" value="d"> D) will arrive</label>
-                  </div>
-                </div>
-
-                <div class="q">
-                  <h3>24. She is not only intelligent ___ also very creative.</h3>
-                  <div class="options">
-                    <label><input type="radio" name="q24" value="a"> A) and</label>
-                    <label><input type="radio" name="q24" value="b"> B) but</label>
-                    <label><input type="radio" name="q24" value="c"> C) or</label>
-                    <label><input type="radio" name="q24" value="d"> D) so</label>
-                  </div>
-                </div>
-
-                <div class="q">
-                  <h3>25. The negotiation failed, ___ was unexpected.</h3>
-                  <div class="options">
-                    <label><input type="radio" name="q25" value="a"> A) that</label>
-                    <label><input type="radio" name="q25" value="b"> B) what</label>
-                    <label><input type="radio" name="q25" value="c"> C) which</label>
-                    <label><input type="radio" name="q25" value="d"> D) who</label>
-                  </div>
-                </div>
-              </div>
-            </details>
+              </details>
+            </div>
           </div>
 
           <div class="quiz-actions">
@@ -811,7 +814,7 @@
       </div>
     </section>
 
-    <!-- WhatsApp section -->
+    <!-- WhatsApp -->
     <section class="section alt reveal" id="whatsapp">
       <div class="container">
         <div class="whats-card">
@@ -828,6 +831,13 @@
             <a class="btn btn-whatsapp" id="ctaWhatsSection" href="#" target="_blank" rel="noopener">
               <i class="fab fa-whatsapp"></i> Hablar por WhatsApp
             </a>
+
+            <div style="height:10px"></div>
+
+            <div style="display:flex;gap:10px;flex-wrap:wrap">
+              <a class="btn btn-primary" id="ctaBuyWhats" href="#">Comprar curso</a>
+              <a class="btn btn-secondary" id="ctaAccessWhats" href="#">Acceder al Classroom</a>
+            </div>
 
             <p class="muted small" style="margin-top:10px">Respuesta rápida. Sin compromiso.</p>
           </div>
@@ -899,6 +909,12 @@
             </a>
 
             <div class="muted small">Lun a Sáb · 9 a 20</div>
+
+            <div style="height:10px"></div>
+            <div style="display:flex;gap:10px;flex-wrap:wrap">
+              <a class="btn btn-primary" id="ctaBuyContact" href="#">Comprar curso</a>
+              <a class="btn btn-secondary" id="ctaAccessContact" href="#">Acceder al Classroom</a>
+            </div>
           </div>
 
           <div class="contact-card">
@@ -909,9 +925,8 @@
               <input type="hidden" name="_subject" value="Nuevo lead — Miss Noe Online English" />
               <input type="hidden" name="_language" value="es" />
               <input type="hidden" name="source" value="GitHub Pages Landing" />
-              <input type="hidden" name="_next" value="https://gonza.github.io/online/gracias.html" />
+              <input type="hidden" name="_next" value="https://omargonza.github.io/online/gracias.html" />
 
-              <!-- Honeypot manual -->
               <input type="text" name="company" tabindex="-1" autocomplete="off" class="hp" />
 
               <label>
