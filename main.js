@@ -1,23 +1,33 @@
 // ==============================
 // Miss Noe Online English — main.js
-// MP + Classroom + WhatsApp + Test + UX
+// Puente: Comprar -> comprar.html | Classroom -> classroom.html
+// WhatsApp + Test + UX
 // ==============================
 
 // ===== Configuración =====
 const WHATSAPP_PHONE = "541126483009";
 const BRAND_NAME = "Miss Noe Online English";
 
-// Mercado Pago / Classroom (PEGÁ TUS LINKS REALES)
-const MP_CHECKOUT_URL = "https://mpago.la/xxxx"; // TODO: reemplazar
-const CLASSROOM_URL = "https://classroom.google.com/...."; // TODO: reemplazar
+// Páginas puente (GitHub Pages)
+const BUY_PAGE_URL = "./comprar.html";
+const CLASSROOM_PAGE_URL = "./classroom.html";
 
 // IDs del HTML (WhatsApp)
 const WHATS_IDS = ["ctaWhatsHero", "ctaWhatsSection", "ctaWhatsContact", "whatsFloat"];
 
-// IDs del HTML (Compra / Acceso)
-// (si no existen en tu HTML, se ignoran)
-const BUY_IDS = ["ctaBuyHero", "ctaBuyPlans", "ctaBuyFooter"];
-const ACCESS_IDS = ["ctaAccessHero", "ctaAccessSection", "ctaAccessPlans"];
+// IDs del HTML (Compra / Acceso) — alineados con TU index.html
+const BUY_IDS = [
+  "ctaBuyNav",
+  "ctaBuyMobile",
+  "ctaBuyMethod",
+  "ctaBuyBase",
+  "ctaBuyPlans",
+  "ctaBuyWork",
+  "ctaBuyWhats",
+  "ctaBuyContact"
+];
+
+const ACCESS_IDS = ["ctaAccessMobile", "ctaAccessWhats", "ctaAccessContact"];
 
 // Storage keys (persistencia)
 const LS_GOAL = "missnoe_goal";
@@ -27,10 +37,7 @@ const LS_LEVEL = "missnoe_level";
 const LS_TEST = "missnoe_leveltest_v1";
 
 // Estado global simple
-const state = {
-  goal: "",
-  level: ""
-};
+const state = { goal: "", level: "" };
 
 function safeText(s) {
   return String(s || "").trim();
@@ -47,13 +54,6 @@ function track(eventName, params = {}) {
   console.debug("[track]", eventName, params);
 }
 
-// ===== Helpers URL =====
-function isPlaceholderUrl(url) {
-  const u = safeText(url);
-  if (!u) return true;
-  return u.includes("mpago.la/xxxx") || u.includes("classroom.google.com/....");
-}
-
 // ===== WhatsApp: mensaje segmentado por objetivo + nivel =====
 function buildWhatsAppLink({ goal, level }) {
   const base = `https://wa.me/${WHATSAPP_PHONE}`;
@@ -64,34 +64,34 @@ function buildWhatsAppLink({ goal, level }) {
     "Trabajo / entrevistas": {
       opener: `Hola ${BRAND_NAME}. Quiero mejorar mi inglés para trabajo y entrevistas.`,
       bullets: ["Me interesa practicar entrevistas, reuniones y emails."],
-      ask: "¿Me pasás planes y cómo funciona el curso asincrónico + acompañamiento?"
+      ask: "¿Me recomendás el plan ideal y cómo funciona el curso asincrónico?"
     },
     "Conversación / fluidez": {
       opener: `Hola ${BRAND_NAME}. Quiero enfocarme en conversación y fluidez.`,
       bullets: ["Busco hablar más y ganar confianza."],
-      ask: "¿Cómo funciona el curso asincrónico y qué soporte/correcciones incluye?"
+      ask: "¿Cómo funciona el curso asincrónico y qué incluye?"
     },
     "Viajes": {
       opener: `Hola ${BRAND_NAME}. Quiero inglés práctico para viajes.`,
       bullets: ["Necesito frases reales, escucha y speaking para situaciones comunes."],
-      ask: "¿Me recomendás un plan y cómo accedo al contenido del curso?"
+      ask: "¿Me recomendás un plan según mi nivel?"
     },
     "Exámenes": {
       opener: `Hola ${BRAND_NAME}. Quiero prepararme para un examen de inglés.`,
       bullets: ["Necesito plan y práctica con enfoque en el examen."],
-      ask: "¿Cómo sería el plan de preparación en modalidad asincrónica + acompañamiento?"
+      ask: "¿Cómo sería el plan en modalidad asincrónica?"
     },
     "General": {
       opener: `Hola ${BRAND_NAME}. Quiero mejorar mi inglés en general.`,
       bullets: ["Busco un plan ordenado y seguimiento."],
-      ask: "¿Me pasás opciones del curso y cómo es el acompañamiento?"
+      ask: "¿Me pasás opciones y qué me recomendás según mi nivel?"
     }
   };
 
   const fallback = {
     opener: `Hola ${BRAND_NAME}, quiero info del curso de inglés online (asincrónico).`,
     bullets: [],
-    ask: "¿Me pasás precio, cómo accedo al contenido y qué incluye?"
+    ask: "¿Me recomendás el plan ideal según mi objetivo y nivel?"
   };
 
   const tpl = templates[g] || fallback;
@@ -130,15 +130,16 @@ function restoreState() {
   } catch (_) {}
 }
 
-function initCheckoutLinks() {
-  // Comprar (MP)
+// ===== Links puente (Comprar / Classroom) =====
+function setBuyAndAccessLinks() {
+  // Comprar -> comprar.html (misma pestaña)
   BUY_IDS.forEach((id) => {
     const el = document.getElementById(id);
     if (!el) return;
 
-    el.setAttribute("href", MP_CHECKOUT_URL || "#");
-    el.setAttribute("target", "_blank");
-    el.setAttribute("rel", "noopener");
+    el.setAttribute("href", BUY_PAGE_URL);
+    el.removeAttribute("target");
+    el.removeAttribute("rel");
 
     el.addEventListener("click", () => {
       track("buy_click", {
@@ -149,74 +150,17 @@ function initCheckoutLinks() {
     });
   });
 
-  // Acceder (Classroom)
+  // Classroom -> classroom.html (misma pestaña)
   ACCESS_IDS.forEach((id) => {
     const el = document.getElementById(id);
     if (!el) return;
 
-    el.setAttribute("href", CLASSROOM_URL || "#");
-    el.setAttribute("target", "_blank");
-    el.setAttribute("rel", "noopener");
+    el.setAttribute("href", CLASSROOM_PAGE_URL);
+    el.removeAttribute("target");
+    el.removeAttribute("rel");
 
     el.addEventListener("click", () => {
       track("classroom_click", { id });
-    });
-  });
-}
-
-
-// ===== Mercado Pago / Classroom links =====
-function setBuyLinks() {
-  const url = safeText(MP_CHECKOUT_URL);
-  BUY_IDS.forEach((id) => {
-    const el = document.getElementById(id);
-    if (!el) return;
-
-    // si quedó placeholder, no rompas navegación: manda a contacto
-    if (isPlaceholderUrl(url)) {
-      el.href = "#contacto";
-      el.removeAttribute("target");
-      el.removeAttribute("rel");
-      el.addEventListener(
-        "click",
-        () => track("buy_click_placeholder", { id, goal: state.goal || "none", level: state.level || "none" }),
-        { once: true }
-      );
-      return;
-    }
-
-    el.href = url;
-    el.target = "_blank";
-    el.rel = "noopener";
-    el.addEventListener("click", () => {
-      track("buy_click", { id, goal: state.goal || "none", level: state.level || "none" });
-    });
-  });
-}
-
-function setAccessLinks() {
-  const url = safeText(CLASSROOM_URL);
-  ACCESS_IDS.forEach((id) => {
-    const el = document.getElementById(id);
-    if (!el) return;
-
-    if (isPlaceholderUrl(url)) {
-      el.href = "#contacto";
-      el.removeAttribute("target");
-      el.removeAttribute("rel");
-      el.addEventListener(
-        "click",
-        () => track("access_click_placeholder", { id }),
-        { once: true }
-      );
-      return;
-    }
-
-    el.href = url;
-    el.target = "_blank";
-    el.rel = "noopener";
-    el.addEventListener("click", () => {
-      track("access_click", { id });
     });
   });
 }
@@ -733,12 +677,9 @@ document.addEventListener("DOMContentLoaded", () => {
   initForm(chipState);
   initWhatsTracking();
 
-  // NUEVO: links de compra y acceso
-  setBuyLinks();
-  setAccessLinks();
+  // Links puente (Comprar / Classroom)
+  setBuyAndAccessLinks();
 
   // refresca WhatsApp
   setWhatsLinks();
-  initCheckoutLinks();
-
 });

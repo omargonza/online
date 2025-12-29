@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Classroom · Miss Noe Online English</title>
+  <meta name="description" content="El acceso a Google Classroom se habilita para estudiantes inscriptos. Sumate a la lista prioritaria o pedí recomendación por WhatsApp." />
+  <link rel="canonical" href="https://omargonza.github.io/online/classroom.html" />
+  <meta name="theme-color" content="#d81b7d" />
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/online/assets/icons/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/online/assets/icons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/online/assets/icons/favicon-16x16.png" />
+  <link rel="manifest" href="/online/assets/icons/site.webmanifest" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a class="brand" href="./" aria-label="Volver al inicio">
+        <img class="brand-logo" src="./assets/logo2.png" alt="Miss Noe Online English" />
+        <div class="brand-text">
+          <div class="brand-title">Miss Noe</div>
+          <div class="brand-subtitle">Online English · Argentina</div>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="Navegación">
+        <a href="./comprar.html" class="btn btn-primary btn-sm">Inscripción</a>
+        <a href="./">Volver</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section class="section reveal" style="padding-top:34px">
+      <div class="container">
+        <div class="section-head">
+          <h1 class="section-title" style="margin:0">Acceder al Google Classroom</h1>
+          <p class="section-subtitle" style="margin-top:10px">
+            El campus se habilita para <strong>estudiantes inscriptos</strong>.
+            Estamos preparando el material completo para <strong>febrero</strong>.
+          </p>
+        </div>
+
+        <div class="callout callout-clean" style="margin-top:16px">
+          <div class="callout-left">
+            <strong>¿Querés que te avisemos apenas esté listo?</strong>
+            <div class="muted">Sumate a la lista prioritaria o escribinos por WhatsApp para recibir la recomendación.</div>
+          </div>
+          <div class="callout-actions">
+            <a class="btn btn-whatsapp btn-lg" id="ctaWhats" href="#" target="_blank" rel="noopener">
+              <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+            <a class="btn btn-secondary" href="./comprar.html">Sumarme a la lista</a>
+          </div>
+        </div>
+
+        <div class="cards" style="margin-top:18px">
+          <article class="card">
+            <div class="card-top">
+              <h3>Si ya sos estudiante</h3>
+              <span class="tag">Acceso</span>
+            </div>
+            <p class="muted">
+              Si ya hiciste el pago y estás esperando la invitación, escribinos por WhatsApp con tu email.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-top">
+              <h3>Si todavía no compraste</h3>
+              <span class="tag">Inscripción</span>
+            </div>
+            <p class="muted">
+              Te orientamos para elegir el curso según tu objetivo y nivel, y te avisamos cuando se habilite el campus.
+            </p>
+            <a class="btn btn-primary" href="./comprar.html">Ir a inscripción</a>
+          </article>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <img class="footer-logo" src="./assets/logo2.png" alt="Miss Noe Online English" />
+        <div class="footer-brand">Miss Noe</div>
+        <div class="muted small">Online English · Argentina</div>
+      </div>
+
+      <div class="footer-links">
+        <a href="./">Inicio</a>
+        <a href="./comprar.html">Inscripción</a>
+      </div>
+
+      <div class="muted small">© <span id="year"></span> · Todos los derechos reservados</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    const WPP = "541126483009";
+    const text = encodeURIComponent("Hola! Quiero acceso / info del Classroom. ¿Me indicás el estado y cómo sigo?");
+    document.getElementById("ctaWhats").href = `https://wa.me/${WPP}?text=${text}`;
+  </script>
+</body>
+</html>
