@@ -371,6 +371,14 @@ p { margin: 0 0 14px; }
 }
 .trust i { color: var(--cta); margin-top: 4px; }
 
+.hero-claim{
+  margin: 12px 0 12px;
+  font-weight: 700;
+  letter-spacing: .2px;
+  opacity: .92;
+}
+
+
 /* hero side card */
 .hero-card {
   background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,253,242,.74));
@@ -1044,4 +1052,29 @@ p { margin: 0 0 14px; }
 @media (min-width: 900px) {
   .quiz-progress{ padding: 14px 16px; }
   .qsec-body{ padding: 0 18px 16px; }
+}
+
+
+.callout-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.callout-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.callout-link {
+  font-size: 0.9rem;
+  color: #6b7280;
+  text-decoration: underline;
+}
+
+.callout-link:hover {
+  color: #111827;
 }
