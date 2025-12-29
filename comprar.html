@@ -51,6 +51,23 @@
           </p>
         </div>
 
+        <!-- BLOQUE PRO: Info detectada (goal/level) -->
+        <div class="callout callout-clean" id="profileCallout" style="margin-top:14px">
+          <div class="callout-left">
+            <strong>Tu info (detectada)</strong>
+            <div class="muted" style="margin-top:6px">
+              Objetivo: <strong id="pfGoal">A definir</strong> · Nivel: <strong id="pfLevel">A definir</strong>
+            </div>
+            <div class="muted small" id="pfHint" style="margin-top:6px">
+              Si querés, hacé el test para estimar tu nivel y recibir una recomendación más precisa.
+            </div>
+          </div>
+          <div class="callout-actions" style="flex-wrap:wrap">
+            <a class="btn btn-secondary" id="pfTestBtn" href="./#nivel">Hacer test de nivel</a>
+            <a class="btn btn-secondary" id="pfClearBtn" href="#" style="display:none">Borrar selección</a>
+          </div>
+        </div>
+
         <div class="callout callout-clean" style="margin-top:16px">
           <div class="callout-left">
             <strong>¿Qué te llevás hoy?</strong>
@@ -98,7 +115,7 @@
                   <option>Trabajo / entrevistas</option>
                   <option>Conversación / fluidez</option>
                   <option>Viajes</option>
-                  <option>Exámenes</option>
+                  <option>Aprender el idioma</option>
                   <option>General</option>
                 </select>
               </label>
@@ -148,10 +165,90 @@
   </footer>
 
   <script>
+    // Año footer
     document.getElementById("year").textContent = new Date().getFullYear();
-    const WPP = "541126483009";
-    const text = encodeURIComponent("Hola! Quiero sumarme a la lista prioritaria y que me recomiendes el curso según mi objetivo y nivel.");
-    document.getElementById("ctaWhats").href = `https://wa.me/${WPP}?text=${text}`;
+
+    // WhatsApp (número correcto)
+    const WPP = "541151424362";
+
+    // Keys iguales a index/main.js
+    const LS_GOAL = "missnoe_goal";
+    const LS_LEVEL = "missnoe_level";
+
+    function safeText(s) {
+      return String(s || "").trim();
+    }
+
+    function readProfile() {
+      return {
+        goal: safeText(localStorage.getItem(LS_GOAL)),
+        level: safeText(localStorage.getItem(LS_LEVEL))
+      };
+    }
+
+    function setProfileUI({ goal, level }) {
+      const pfGoal = document.getElementById("pfGoal");
+      const pfLevel = document.getElementById("pfLevel");
+      const pfHint = document.getElementById("pfHint");
+      const pfClearBtn = document.getElementById("pfClearBtn");
+      const pfTestBtn = document.getElementById("pfTestBtn");
+
+      if (pfGoal) pfGoal.textContent = goal || "A definir";
+      if (pfLevel) pfLevel.textContent = level || "A definir";
+
+      const hasAny = Boolean(goal || level);
+
+      if (pfTestBtn) pfTestBtn.style.display = level ? "none" : "";
+      if (pfClearBtn) pfClearBtn.style.display = hasAny ? "" : "none";
+
+      if (pfHint) {
+        pfHint.textContent = hasAny
+          ? "Si querés afinar la recomendación, podés hacer el test o hablar por WhatsApp."
+          : "Si querés, hacé el test para estimar tu nivel y recibir una recomendación más precisa.";
+      }
+    }
+
+    function buildWhatsAppMessage({ goal, level }) {
+      let message = "Hola! Quiero sumarme a la lista prioritaria.";
+
+      if (goal || level) {
+        message += " ";
+        if (goal) message += `Mi objetivo es ${goal}. `;
+        if (level) message += `Mi nivel estimado es ${level}. `;
+        message += "¿Me recomendás el curso ideal y cómo sigo?";
+      } else {
+        message += " Quisiera que me recomiendes el curso según mi objetivo y nivel.";
+      }
+
+      return message;
+    }
+
+    function setWhatsLink(profile) {
+      const cta = document.getElementById("ctaWhats");
+      if (!cta) return;
+
+      const text = encodeURIComponent(buildWhatsAppMessage(profile));
+      cta.href = `https://wa.me/${WPP}?text=${text}`;
+    }
+
+    // Init
+    const profile = readProfile();
+    setProfileUI(profile);
+    setWhatsLink(profile);
+
+    // Clear selection
+    const pfClearBtn = document.getElementById("pfClearBtn");
+    if (pfClearBtn) {
+      pfClearBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        localStorage.removeItem(LS_GOAL);
+        localStorage.removeItem(LS_LEVEL);
+
+        const cleared = { goal: "", level: "" };
+        setProfileUI(cleared);
+        setWhatsLink(cleared);
+      });
+    }
   </script>
 </body>
 </html>

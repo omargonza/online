@@ -1078,3 +1078,30 @@ p { margin: 0 0 14px; }
 .callout-link:hover {
   color: #111827;
 }
+
+/* Redes sociales */
+.socials,
+.footer-socials {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.socials a,
+.footer-socials a {
+  font-size: 1.1rem;
+  color: currentColor;
+  opacity: 0.7;
+  transition: opacity .15s ease, transform .15s ease;
+}
+
+.socials a:hover,
+.footer-socials a:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+/* Footer un poco más discreto */
+.footer-socials {
+  margin-top: 10px;
+}

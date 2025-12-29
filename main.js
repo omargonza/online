@@ -5,8 +5,15 @@
 // ==============================
 
 // ===== Configuración =====
-const WHATSAPP_PHONE = "541126483009";
+const WHATSAPP_PHONE = "541151424362";
 const BRAND_NAME = "Miss Noe Online English";
+
+// ===== Redes sociales =====
+const SOCIALS = {
+  instagram: "https://www.instagram.com/miss.noe_online.english",
+  youtube: "https://youtube.com/@missnoe",
+  linkedin: "https://www.linkedin.com/in/miss-noe-moni"
+};
 
 // Páginas puente (GitHub Pages)
 const BUY_PAGE_URL = "./comprar.html";
@@ -76,9 +83,9 @@ function buildWhatsAppLink({ goal, level }) {
       bullets: ["Necesito frases reales, escucha y speaking para situaciones comunes."],
       ask: "¿Me recomendás un plan según mi nivel?"
     },
-    "Exámenes": {
-      opener: `Hola ${BRAND_NAME}. Quiero prepararme para un examen de inglés.`,
-      bullets: ["Necesito plan y práctica con enfoque en el examen."],
+    "Aprender el idioma": {
+      opener: `Hola ${BRAND_NAME}. Quiero aprender inglés.`,
+      bullets: ["Necesito plan y práctica para aprender."],
       ask: "¿Cómo sería el plan en modalidad asincrónica?"
     },
     "General": {
@@ -682,4 +689,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // refresca WhatsApp
   setWhatsLinks();
+
+  // ===== Conectar redes sociales =====
+const socialsMap = {
+  igLink: SOCIALS.instagram,
+  ytLink: SOCIALS.youtube,
+  liLink: SOCIALS.linkedin,
+  igFooter: SOCIALS.instagram,
+  ytFooter: SOCIALS.youtube,
+  liFooter: SOCIALS.linkedin
+};
+
+Object.entries(socialsMap).forEach(([id, url]) => {
+  const el = document.getElementById(id);
+  if (el) el.href = url;
+});
+
 });
