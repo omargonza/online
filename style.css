@@ -499,42 +499,55 @@ p { margin: 0 0 14px; }
   padding: 10px 12px;
   box-shadow: 0 10px 18px rgba(35,31,42,.12);
 }
-
-/* === HERO badge: evitar tapar la cara en mobile === */
+/* === HERO mobile: badge abajo SIN tapar el mini === */
 @media (max-width: 520px) {
-  .hero-photo-card {
-    overflow: hidden; /* por si el badge se corre */
+  /* 1) Reservá espacio abajo para el mini */
+  .hero-photo-overlay {
+    padding-bottom: 92px; /* espacio para que no choque con el badge */
   }
 
-  .hero-badge-abs {
-    top: auto !important;
-    bottom: 12px !important;
-    left: 12px !important;
-    right: 12px !important;
+  /* 2) El mini (Objetivo/Nivel) arriba del badge */
+  .hero-photo-overlay {
+    z-index: 3;
+  }
 
-    /* badge más compacto */
-    padding: 10px 12px !important;
-    gap: 10px !important;
+  .hero-badge.hero-badge-abs {
+    top: auto;
+    bottom: 12px;
+    left: 12px;
+    right: 12px;
 
-    /* glass sutil para que se lea */
-    background: rgba(0, 0, 0, 0.38) !important;
-    backdrop-filter: blur(8px);
+    z-index: 2; /* queda debajo del mini */
+
+    display: flex;
+    width: auto;           /* ocupa el ancho disponible */
+    justify-content: flex-start;
+
+    /* compacto */
+    padding: 10px 12px;
+    gap: 10px;
+
+    /* glass oscuro para contraste */
+    background: rgba(0, 0, 0, 0.38);
     border: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(8px);
   }
 
-  .hero-badge-abs .badge-logo {
-    width: 34px !important;
-    height: 34px !important;
+  .hero-badge.hero-badge-abs .badge-logo {
+    width: 34px;
+    height: 34px;
   }
 
-  .hero-badge-abs .badge-title {
-    font-size: 14px !important;
+  .hero-badge.hero-badge-abs .badge-title {
+    font-size: 14px;
     line-height: 1.1;
+    color: rgba(255,255,255,.95);
   }
 
-  .hero-badge-abs .badge-sub {
-    font-size: 12px !important;
-    opacity: 0.92;
+  .hero-badge.hero-badge-abs .badge-sub {
+    font-size: 12px;
+    opacity: 0.9;
+    color: rgba(255,255,255,.88);
   }
 }
 
