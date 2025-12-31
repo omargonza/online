@@ -19,9 +19,10 @@
   --borderStrong: rgba(35,31,42,.16);
 
   /* CTA */
-  --cta: #d81b7d;
-  --cta2: #ff4aa5;
-  --ctaHover: #b91569;
+  --cta: #e06b5a;
+--cta2: #f39a8c;
+--ctaHover: #c45547;
+
 
   /* Whatsapp */
   --wa: #25D366;
