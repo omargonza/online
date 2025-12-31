@@ -500,6 +500,45 @@ p { margin: 0 0 14px; }
   box-shadow: 0 10px 18px rgba(35,31,42,.12);
 }
 
+/* === HERO badge: evitar tapar la cara en mobile === */
+@media (max-width: 520px) {
+  .hero-photo-card {
+    overflow: hidden; /* por si el badge se corre */
+  }
+
+  .hero-badge-abs {
+    top: auto !important;
+    bottom: 12px !important;
+    left: 12px !important;
+    right: 12px !important;
+
+    /* badge más compacto */
+    padding: 10px 12px !important;
+    gap: 10px !important;
+
+    /* glass sutil para que se lea */
+    background: rgba(0, 0, 0, 0.38) !important;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+  }
+
+  .hero-badge-abs .badge-logo {
+    width: 34px !important;
+    height: 34px !important;
+  }
+
+  .hero-badge-abs .badge-title {
+    font-size: 14px !important;
+    line-height: 1.1;
+  }
+
+  .hero-badge-abs .badge-sub {
+    font-size: 12px !important;
+    opacity: 0.92;
+  }
+}
+
+
 /* =========================================================
    STRIP
 ========================================================= */
